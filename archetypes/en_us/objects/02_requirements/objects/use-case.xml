@@ -2,7 +2,7 @@
 <object
     id="use-case"
     classes="software-requirement use-case"
-    acceptedChildren="use-case-step"
+    acceptedChildren="use-case-step conditional-branch"
 >
   <properties>
     <codeProperty name=":Proteus-code" category="general" inmutable="true">
@@ -11,12 +11,14 @@
       <suffix><![CDATA[]]></suffix>
     </codeProperty>
 
-    <stringProperty name=":Proteus-name" category="general">Goal of the primary actor</stringProperty>
+    <stringProperty name=":Proteus-name" category="general" tooltip="use-case-name">Concrete use case</stringProperty>
     <dateProperty name=":Proteus-date">2024-10-01</dateProperty>
     <stringProperty name="version"><![CDATA[1.0]]></stringProperty>
     <traceProperty name="authors" category="general" acceptedTargets="stakeholder" traceType=":Proteus-author"/>
     <traceProperty name="sources" category="general" acceptedTargets="stakeholder" traceType=":Proteus-information-source"/>
-    <markdownProperty name="description" category="detail"><![CDATA[The system shall behave as described in the following use case when ...]]></markdownProperty>
+    <markdownProperty name="description" category="detail" tooltip="use-case-description"><![CDATA[The system shall behave as described in the following use case when _[triggering event]_.]]></markdownProperty>
+    <booleanProperty name="is-abstract" category="detail" tooltip="is-abstract-use-case">false</booleanProperty>
+    <unitProperty name="frequency" category="detail" tooltip="frequency" units="year month week day hour minute second millisecond"><value>0</value><unit>day</unit></unitProperty>
     <markdownProperty name="precondition" category="pre-post"><![CDATA[]]></markdownProperty>
     <markdownProperty name="postcondition" category="pre-post"><![CDATA[]]></markdownProperty>
     <enumProperty name="importance" category="priority" tooltip="importance" choices="tbd critical high medium low optional">tbd</enumProperty>

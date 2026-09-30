@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<object
+    id="actor-system-step"
+    classes="use-case-step use-case-action actor-action actor-system-action actor-system-step"
+    acceptedChildren="use-case-exception"
+    acceptedParents="use-case conditional-branch"
+>
+  <properties>
+    <stringProperty name=":Proteus-name" category="general">Paso actor-sistema</stringProperty>
+    <markdownProperty name="condition" category="general" tooltip="step-condition"><![CDATA[]]></markdownProperty>
+    <traceProperty name="actor" category="general" acceptedTargets="system-actor" maxTargetsNumber="1" traceType=":Proteus-dependency"/>
+    <markdownProperty name="description" category="general" tooltip="actor-action-description"><![CDATA[]]></markdownProperty>
+    <markdownProperty name="comments" category="comments"><![CDATA[]]></markdownProperty>
+  </properties>
+
+  <children>
+  </children>
+
+</object>

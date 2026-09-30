@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<object
+    id="use-case-exception"
+    classes="use-case-exception"
+    acceptedChildren="use-case-action"
+    acceptedParents="use-case-step"
+>
+  <properties>
+    <stringProperty name=":Proteus-name" category="general">Excepción</stringProperty>
+    <markdownProperty name="condition" category="general" tooltip="exception-condition"><![CDATA[]]></markdownProperty>
+    <enumProperty name="termination" category="general" tooltip="exception-termination" choices="resumes failure-ending">resumes</enumProperty>
+    <markdownProperty name="comments" category="comments"><![CDATA[]]></markdownProperty>
+  </properties>
+
+  <children>
+  </children>
+
+</object>

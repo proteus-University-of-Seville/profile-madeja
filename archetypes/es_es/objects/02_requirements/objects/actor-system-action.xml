@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<object
+    id="actor-system-action"
+    classes="use-case-action actor-action actor-system-action"
+    acceptedChildren=":Proteus-none"
+    acceptedParents="use-case-exception"
+>
+  <properties>
+    <stringProperty name=":Proteus-name" category="general">Acción actor-sistema</stringProperty>
+    <traceProperty name="actor" category="general" acceptedTargets="system-actor" maxTargetsNumber="1" traceType=":Proteus-dependency"/>
+    <markdownProperty name="description" category="general" tooltip="actor-action-description"><![CDATA[]]></markdownProperty>
+    <markdownProperty name="comments" category="comments"><![CDATA[]]></markdownProperty>
+  </properties>
+
+</object>

@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <object
-    id="use-case"
+    id="abstract-use-case"
     classes="software-requirement use-case"
     acceptedChildren="use-case-step conditional-branch"
 >
   <properties>
     <codeProperty name=":Proteus-code" category="general" inmutable="true">
-      <prefix><![CDATA[CU-]]></prefix>
+      <prefix><![CDATA[UC-]]></prefix>
       <number>001</number>
       <suffix><![CDATA[]]></suffix>
     </codeProperty>
 
-    <stringProperty name=":Proteus-name" category="general" tooltip="use-case-name">Caso de uso concreto</stringProperty>
+    <stringProperty name=":Proteus-name" category="general" tooltip="abstract-use-case-name">Abstract use case</stringProperty>
     <dateProperty name=":Proteus-date">2024-10-01</dateProperty>
     <stringProperty name="version"><![CDATA[1.0]]></stringProperty>
     <traceProperty name="authors" category="general" acceptedTargets="stakeholder" traceType=":Proteus-author"/>
     <traceProperty name="sources" category="general" acceptedTargets="stakeholder" traceType=":Proteus-information-source"/>
-    <markdownProperty name="description" category="detail" tooltip="use-case-description"><![CDATA[El sistema se comportará como se describe en el siguiente caso de uso cuando _[evento disparador]_.]]></markdownProperty>
-    <booleanProperty name="is-abstract" category="detail" tooltip="is-abstract-use-case">false</booleanProperty>
+    <markdownProperty name="description" category="detail" tooltip="abstract-use-case-description"><![CDATA[The system shall behave as described in the following abstract use case during the realization of the following use cases: _[use cases that include or extend it]_.]]></markdownProperty>
+    <booleanProperty name="is-abstract" category="detail" tooltip="is-abstract-use-case">true</booleanProperty>
     <unitProperty name="frequency" category="detail" tooltip="frequency" units="year month week day hour minute second millisecond"><value>0</value><unit>day</unit></unitProperty>
     <markdownProperty name="precondition" category="pre-post"><![CDATA[]]></markdownProperty>
     <markdownProperty name="postcondition" category="pre-post"><![CDATA[]]></markdownProperty>

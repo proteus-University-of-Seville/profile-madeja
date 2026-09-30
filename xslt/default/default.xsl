@@ -74,7 +74,6 @@
   <xsl:include href="archetypes/requirements/system_actor.xsl" />
   <xsl:include href="archetypes/requirements/use_case.xsl" />
   <xsl:include href="archetypes/requirements/use_case_diagram.xsl" />
-  <xsl:include href="archetypes/requirements/use_case_step.xsl" />
 
   <!-- 03_conceptual_modeling -->
   <xsl:include href="archetypes/conceptual_modeling/association.xsl" />

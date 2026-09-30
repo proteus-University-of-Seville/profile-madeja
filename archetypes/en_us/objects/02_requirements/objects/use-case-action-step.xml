@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<object
+    id="use-case-action-step"
+    classes="use-case-step use-case-action use-case-action-type use-case-action-step"
+    acceptedChildren="use-case-exception"
+    acceptedParents="use-case conditional-branch"
+>
+  <properties>
+    <stringProperty name=":Proteus-name" category="general">Use case action step</stringProperty>
+    <markdownProperty name="condition" category="general" tooltip="step-condition"><![CDATA[]]></markdownProperty>
+    <traceProperty name="use-case" category="general" acceptedTargets="use-case" maxTargetsNumber="1" traceType=":Proteus-dependency"/>
+    <markdownProperty name="comments" category="comments"><![CDATA[]]></markdownProperty>
+  </properties>
+
+  <children>
+  </children>
+
+</object>

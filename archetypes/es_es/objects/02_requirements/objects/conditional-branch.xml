@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<object
+    id="conditional-branch"
+    classes="conditional-branch"
+    acceptedChildren="use-case-step"
+    acceptedParents="use-case"
+>
+  <properties>
+    <stringProperty name=":Proteus-name" category="general">Rama condicional</stringProperty>
+    <markdownProperty name="condition" category="general" tooltip="branch-condition"><![CDATA[]]></markdownProperty>
+    <enumProperty name="termination" category="general" tooltip="branch-termination" choices="resumes ok-ending failure-ending">resumes</enumProperty>
+    <markdownProperty name="comments" category="comments"><![CDATA[]]></markdownProperty>
+  </properties>
+
+  <children numbered="true">
+  </children>
+
+</object>

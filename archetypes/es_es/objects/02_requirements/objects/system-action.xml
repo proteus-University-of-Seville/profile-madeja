@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<object
+    id="system-action"
+    classes="use-case-action system-action"
+    acceptedChildren=":Proteus-none"
+    acceptedParents="use-case-exception"
+>
+  <properties>
+    <stringProperty name=":Proteus-name" category="general">Acción del sistema</stringProperty>
+    <markdownProperty name="description" category="general" tooltip="system-action-description"><![CDATA[]]></markdownProperty>
+    <stringProperty name="performance" category="general" tooltip="performance"><![CDATA[]]></stringProperty>
+    <markdownProperty name="comments" category="comments"><![CDATA[]]></markdownProperty>
+  </properties>
+
+</object>

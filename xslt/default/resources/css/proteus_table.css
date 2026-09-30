@@ -235,6 +235,30 @@ td.step_action_column {
   width: 100%;
 }
 
+/* "Step | Action" header row: same background as the step number cells */
+/* (which get it from the label column rule, being their row's first th) */
+table.proteus_table > tbody > tr > th.step_number_column,
+table.proteus_table > tr > th.step_number_column,
+table.proteus_table > tbody > tr > th.step_action_column,
+table.proteus_table > tr > th.step_action_column {
+  background: var(--label-bg);
+}
+
+/* second-level numbers (4.1, 4.2, ...) of the steps of a conditional   */
+/* branch and of the actions of an exception are shown in the action   */
+/* cell, under the condition, styled like the step number column       */
+span.use_case_branch_step_number {
+  font-style: normal;   /* also in the (italic) branch ending row */
+  font-weight: 600;
+  color: var(--ink-soft);
+  margin-right: 0.6em;
+}
+
+/* evolved use cases: ending row of a conditional branch or exception */
+tr.use_case_termination > td {
+  font-style: italic;
+}
+
 table.proteus_table > tbody > tr:hover > td,
 table.proteus_table > tr:hover > td {
   background: var(--row-hover);
