@@ -8,3 +8,6 @@
 
 xslt_templates.default: "Requirements Engineering view"
 xslt_templates.description.default: "Default view for the RE course"
+
+xslt_templates.latex: "LaTeX document"
+xslt_templates.description.latex: "LaTeX template used by the LaTeX and PDF (from LaTeX) export formats."

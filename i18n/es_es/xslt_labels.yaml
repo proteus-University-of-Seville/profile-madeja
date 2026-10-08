@@ -67,3 +67,8 @@ xslt.traceability_matrix_missing_item: "No se puede visualizar la matriz de traz
 xslt.project: "Proyecto"
 xslt.symlink_tooltip: "Esta es una representación del objeto original. Modificar este objeto supone modificar el objeto original."
 xslt.toc: "Índice"
+
+# Plantilla LaTeX: opción de idioma del paquete babel y texto que se
+# muestra en lugar de una figura remota que no se ha podido descargar
+xslt.latex_babel_language: "spanish"
+xslt.remote_figure_not_available: "Figura remota no disponible"

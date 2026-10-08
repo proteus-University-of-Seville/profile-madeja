@@ -68,5 +68,7 @@ xslt.project: "Project"
 xslt.symlink_tooltip: "This is a representation of the original object. Modifying this object will modify the original."
 xslt.toc: "Table of contents"
 
-
-
+# LaTeX template: language option of the babel package and text shown
+# instead of a remote figure that could not be downloaded
+xslt.latex_babel_language: "english"
+xslt.remote_figure_not_available: "Remote figure not available"
