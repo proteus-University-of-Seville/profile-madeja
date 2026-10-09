@@ -21,20 +21,6 @@
 # archetypes is added, its strings should be moved to its own .yaml file.
 
 # -----------------------------------------------------------------------
-# Enumeration choices not used by any current archetype
-# -----------------------------------------------------------------------
-
-archetype.enum_choices.awaiting-qa: "Esperando verificación de calidad"
-archetype.enum_choices.awaiting-validation: "Esperando validación"
-archetype.enum_choices.critical: "Crítica"
-archetype.enum_choices.draft: "Borrador"
-archetype.enum_choices.high: "Alta"
-archetype.enum_choices.low: "Baja"
-archetype.enum_choices.medium: "Media"
-archetype.enum_choices.optional: "Opcional"
-archetype.enum_choices.validated: "Validado"
-
-# -----------------------------------------------------------------------
 # Literal texts (key: xslt.<name>)
 # -----------------------------------------------------------------------
 
