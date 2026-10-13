@@ -56,6 +56,7 @@
   <!-- 02_requirements -->
   <xsl:include href="archetypes/requirements/general_requirement.xsl" />
   <xsl:include href="archetypes/requirements/information_requirement.xsl" />
+  <xsl:include href="archetypes/requirements/system_actor.xsl" />
   <xsl:include href="archetypes/requirements/use_case.xsl" />
 
   <!-- 03_conceptual_modeling -->

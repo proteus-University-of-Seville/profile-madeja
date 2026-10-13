@@ -44,6 +44,8 @@ xslt.step: "Step"
 xslt.sub_objectives: "Sub-objectives"
 xslt.sub_requirements: "Sub-requirements"
 xslt.tbd_expanded: "To Be Determined"
+xslt.trace_derived: "derived from use case steps"
+xslt.trace_inherited: "inherited from"
 
 # Use case ordinary sequence, conditional branches and exceptions
 xslt.exceptions: "Exceptions"

@@ -9,3 +9,11 @@
 .proteus_table.system-actor {
   --accent: #455A64;
 }
+
+/* Origin of a use case of the participates-in row that is not declared by */
+/* the user: deduced from the steps or inherited from another actor        */
+ul.traces span.trace_origin {
+  color: var(--ink-soft);
+  font-style: italic;
+  font-size: .92em;
+}
