@@ -443,7 +443,7 @@
       <xsl:when test="$target_object">
         <a href="#{$target_id}" onclick="selectAndNavigate(`{$target_id}`, event)">
           <xsl:variable name="target_code" select="$target_object/properties/*[@name=':Proteus-code']"/>
-          <xsl:if test="$target_code">[<xsl:value-of select="$target_code"/>] </xsl:if>
+          <xsl:if test="$target_code">[<xsl:value-of select="$target_code"/>]<xsl:text>&#160;</xsl:text></xsl:if>
           <xsl:value-of select="$target_object/properties/*[@name=':Proteus-name']"/>
         </a>
       </xsl:when>
