@@ -26,6 +26,7 @@
   >
     <xsl:call-template name="generate_table">
       <xsl:with-param name="children_style" select="'list'"/>
+      <xsl:with-param name="children_position" select="'after_description'"/>
       <xsl:with-param name="children_label_key" select="'xslt.sub_objectives'"/>
     </xsl:call-template>
   </xsl:template>

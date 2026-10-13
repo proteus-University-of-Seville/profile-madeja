@@ -17,45 +17,21 @@
   <!-- information-requirement template                                   -->
   <!-- ================================================================== -->
 
-  <!-- Its specific-data children are shown as a compact bulleted list     -->
-  <!-- ("name: description" per item) instead of the default nested-card  -->
-  <!-- rendering, since each specific datum is just a short name/          -->
-  <!-- description pair, not a full object worth a card of its own. The   -->
-  <!-- row always comes right after the description: 'description' is    -->
-  <!-- rendered manually here (excluded from the automatic property loop) -->
-  <!-- so the two stay adjacent regardless of where the rest of the       -->
-  <!-- properties end up.                                                 -->
+  <!-- Its specific-data children are shown as a compact list ("name:     -->
+  <!-- description" per item) in a row right after the description,      -->
+  <!-- instead of the default nested-card rendering, since each specific -->
+  <!-- datum is just a short name/description pair, not a full object    -->
+  <!-- worth a card of its own.                                          -->
 
   <xsl:template
     match="object[contains(concat(' ', normalize-space(@classes), ' '),' information-requirement ')]"
     name="information_requirement_template"
     priority="1"
   >
-    <xsl:variable name="description_and_specific_data_rows">
-      <!-- Description -->
-      <xsl:for-each select="properties/*[@name='description']">
-        <xsl:call-template name="generate_property_row"/>
-      </xsl:for-each>
-
-      <!-- Specific data -->
-      <xsl:if test="children/*">
-        <tr class="children_row">
-          <th>
-            <xsl:value-of select="proteus-utils:i18n('xslt.specific_data')"/>
-          </th>
-          <td class="children_column">
-            <xsl:call-template name="renderChildrenList">
-              <xsl:with-param name="children" select="children/*"/>
-            </xsl:call-template>
-          </td>
-        </tr>
-      </xsl:if>
-    </xsl:variable>
-
     <xsl:call-template name="generate_table">
-      <xsl:with-param name="excluded_properties" select="',:Proteus-name,:Proteus-code,:Proteus-date,version,authors,sources,description,'"/>
-      <xsl:with-param name="extra_rows_before" select="$description_and_specific_data_rows"/>
-      <xsl:with-param name="show_children" select="false()"/>
+      <xsl:with-param name="children_style" select="'list'"/>
+      <xsl:with-param name="children_position" select="'after_description'"/>
+      <xsl:with-param name="children_label_key" select="'xslt.specific_data'"/>
     </xsl:call-template>
   </xsl:template>
 
