@@ -44,7 +44,7 @@ xslt.step: "Paso"
 xslt.sub_objectives: "Subobjetivos"
 xslt.sub_requirements: "Subrequisitos"
 xslt.tbd_expanded: "Por determinar"
-xslt.trace_derived: "deducido de los pasos del caso de uso"
+xslt.trace_derived: "deducido de los pasos de caso de uso"
 xslt.trace_inherited: "heredado de"
 
 # Use case ordinary sequence, conditional branches and exceptions
