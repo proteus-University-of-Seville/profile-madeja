@@ -35,10 +35,14 @@
 # -----------------------------------------------------------------------
 
 xslt.action: "Acción"
-xslt.children: "Hijos"
+xslt.children: "Contiene"
 xslt.empty_paragraph: "Párrafo vacío"
+xslt.enum_values: "Valores enumerados"
 xslt.ordinary_sequence: "Secuencia normal"
+xslt.specific_data: "Datos específicos"
 xslt.step: "Paso"
+xslt.sub_objectives: "Subobjetivos"
+xslt.sub_requirements: "Subrequisitos"
 xslt.tbd_expanded: "Por determinar"
 
 # Use case ordinary sequence, conditional branches and exceptions

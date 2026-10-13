@@ -38,15 +38,16 @@
   <!-- business-objective template                                              -->
   <!-- ================================================================== -->
 
-  <!--
   <xsl:template
     match="object[contains(concat(' ', normalize-space(@classes), ' '),' business-objective ')]"
     name="business_objective_template"
     priority="1"
   >
-    <xsl:call-template name="generate_table"/>
+    <xsl:call-template name="generate_table">
+      <xsl:with-param name="children_style" select="'list'"/>
+      <xsl:with-param name="children_label_key" select="'xslt.sub_objectives'"/>
+    </xsl:call-template>
 
   </xsl:template>
-  -->
 
 </xsl:stylesheet>

@@ -41,22 +41,12 @@
       <xsl:if test="children/*">
         <tr class="children_row">
           <th>
-            <xsl:value-of select="proteus-utils:i18n('archetype.class.specific-data')"/>
+            <xsl:value-of select="proteus-utils:i18n('xslt.specific_data')"/>
           </th>
           <td class="children_column">
-            <ul class="specific_data_list">
-              <xsl:for-each select="children/*">
-                <li>
-                  <strong>
-                    <xsl:value-of select="properties/*[@name=':Proteus-name']"/>
-                  </strong>
-                  <xsl:text>: </xsl:text>
-                  <xsl:call-template name="generate_markdown">
-                    <xsl:with-param name="content" select="properties/*[@name='description']"/>
-                  </xsl:call-template>
-                </li>
-              </xsl:for-each>
-            </ul>
+            <xsl:call-template name="renderChildrenList">
+              <xsl:with-param name="children" select="children/*"/>
+            </xsl:call-template>
           </td>
         </tr>
       </xsl:if>

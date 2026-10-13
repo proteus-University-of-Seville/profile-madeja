@@ -35,25 +35,13 @@
       <!-- Specific data -->
       <xsl:if test="children/*">
         <xsl:call-template name="label">
-          <xsl:with-param name="key" select="'archetype.class.specific-data'"/>
+          <xsl:with-param name="key" select="'xslt.specific_data'"/>
         </xsl:call-template>
-        <xsl:text> &amp; \begin{itemize}&#10;</xsl:text>
-        <xsl:for-each select="children/*">
-          <!-- The paragraph must start before the anchor (\phantomsection), -->
-          <!-- or it adds an empty line above the item                       -->
-          <xsl:text>\item\leavevmode</xsl:text>
-          <xsl:call-template name="anchor"/>
-          <xsl:text>\textbf{</xsl:text>
-          <xsl:call-template name="tex">
-            <xsl:with-param name="text" select="properties/*[@name=':Proteus-name']"/>
-          </xsl:call-template>
-          <xsl:text>}: </xsl:text>
-          <xsl:call-template name="generate_markdown">
-            <xsl:with-param name="content" select="properties/*[@name='description']"/>
-          </xsl:call-template>
-          <xsl:text>&#10;</xsl:text>
-        </xsl:for-each>
-        <xsl:text>\end{itemize} \\ \hline&#10;</xsl:text>
+        <xsl:text> &amp; </xsl:text>
+        <xsl:call-template name="renderChildrenItems">
+          <xsl:with-param name="children" select="children/*"/>
+        </xsl:call-template>
+        <xsl:text> \\ \hline&#10;</xsl:text>
       </xsl:if>
     </xsl:variable>
 

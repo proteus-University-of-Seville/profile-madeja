@@ -50,9 +50,16 @@
   <xsl:include href="archetypes/general/figure.xsl" />
   <xsl:include href="archetypes/general/symbolic_link.xsl" />
 
+  <!-- 01_business_analysis -->
+  <xsl:include href="archetypes/business_analysis/business_objective.xsl" />
+
   <!-- 02_requirements -->
+  <xsl:include href="archetypes/requirements/general_requirement.xsl" />
   <xsl:include href="archetypes/requirements/information_requirement.xsl" />
   <xsl:include href="archetypes/requirements/use_case.xsl" />
+
+  <!-- 03_conceptual_modeling -->
+  <xsl:include href="archetypes/conceptual_modeling/enumeration.xsl" />
 
   <!-- 04_req_management -->
   <xsl:include href="archetypes/req_management/traceability_matrix.xsl" />
