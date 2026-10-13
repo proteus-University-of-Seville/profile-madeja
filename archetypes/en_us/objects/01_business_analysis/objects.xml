@@ -2,8 +2,10 @@
 <objects>
     <object id="strength" />
     <object id="weakness" />
-    <object id="business-actor" />
-    <object id="business-process" />
+    <object id="as-is-business-actor" />
+    <object id="to-be-business-actor" />
+    <object id="as-is-business-process" />
+    <object id="to-be-business-process" />
     <object id="business-objective" />    
     <object id="user-story" />
 </objects>
