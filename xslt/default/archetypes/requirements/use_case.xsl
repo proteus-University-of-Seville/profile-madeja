@@ -110,6 +110,16 @@
           <xsl:call-template name="use_case_exception_rows"/>
         </xsl:for-each>
       </xsl:if>
+
+      <!-- Frequency: the label of the form is longer (it tells the unit),   -->
+      <!-- and a frequency of 0 means "to be determined", so, like other     -->
+      <!-- empty properties, it is not shown                                 -->
+      <xsl:for-each select="properties/*[@name='frequency'][number(value) &gt; 0]">
+        <xsl:call-template name="generate_property_row">
+          <xsl:with-param name="label" select="proteus-utils:i18n('xslt.uc_frequency')"/>
+          <xsl:with-param name="span" select="2"/>
+        </xsl:call-template>
+      </xsl:for-each>
     </xsl:variable>
 
     <!-- Abstract use cases are marked in the header instead of a row -->
@@ -122,11 +132,8 @@
     <xsl:call-template name="generate_table">
       <xsl:with-param name="span" select="2"/>
       <xsl:with-param name="postfix" select="string($postfix)"/>
-      <!-- A frequency of 0 means "to be determined": like other empty  -->
-      <!-- properties, it is not shown                                  -->
       <xsl:with-param name="excluded_properties">
-        <xsl:text>,:Proteus-name,:Proteus-code,:Proteus-date,version,authors,sources,precondition,description,postcondition,is-abstract,</xsl:text>
-        <xsl:if test="not(number(properties/*[@name='frequency']/value) &gt; 0)">frequency,</xsl:if>
+        <xsl:text>,:Proteus-name,:Proteus-code,:Proteus-date,version,authors,sources,precondition,description,postcondition,is-abstract,frequency,</xsl:text>
       </xsl:with-param>
       <xsl:with-param name="extra_rows_before" select="$use_case_rows"/>
       <xsl:with-param name="show_children" select="false()"/>
