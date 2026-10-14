@@ -49,6 +49,7 @@
   <xsl:include href="archetypes/general/bibliography_item.xsl" />
   <xsl:include href="archetypes/general/figure.xsl" />
   <xsl:include href="archetypes/general/symbolic_link.xsl" />
+  <xsl:include href="archetypes/general/meeting.xsl" />
 
   <!-- 01_business_analysis -->
   <xsl:include href="archetypes/business_analysis/business_objective.xsl" />
