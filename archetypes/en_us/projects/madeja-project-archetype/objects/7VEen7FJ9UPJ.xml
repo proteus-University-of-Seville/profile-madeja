@@ -4,5 +4,7 @@
     <stringProperty name=":Proteus-name" category="general"><![CDATA[Description of business actors to be implemented]]></stringProperty>
     <markdownProperty name="comments" category="general"><![CDATA[]]></markdownProperty>
   </properties>
-  <children/>
+  <children>
+    <child id="7VEen7FJ9UPJ-help"/>
+  </children>
 </object>

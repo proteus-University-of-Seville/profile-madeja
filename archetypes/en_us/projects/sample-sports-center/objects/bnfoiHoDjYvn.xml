@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<object id="bnfoiHoDjYvn" classes="traceable-object paragraph" acceptedChildren=":Proteus-none" acceptedParents=":Proteus-document section" selectedCategory="detail">
+  <properties>
+    <stringProperty name=":Proteus-name" category="general"><![CDATA[Project scope]]></stringProperty>
+    <dateProperty name=":Proteus-date" category="general">2026-10-09</dateProperty>
+    <stringProperty name="version" category="general"><![CDATA[1.0]]></stringProperty>
+    <traceProperty name="authors" category="general" acceptedTargets="stakeholder" traceType=":Proteus-author"/>
+    <traceProperty name="sources" category="general" acceptedTargets="stakeholder" traceType=":Proteus-information-source"/>
+    <markdownProperty name="text" category="detail"><![CDATA[The system will affect the reception service of the sports center, which manages the bookings and the access to the facilities, and the administration of the Board, which manages the members and the payments. In addition, the members of the center will be able to use it directly from the Internet. The management of the directed activities and the accounting of the Board are out of scope.]]></markdownProperty>
+    <traceProperty name="dependencies" category="dependencies" acceptedTargets="traceable-object" traceType=":Proteus-dependency"/>
+    <markdownProperty name="comments" category="comments"><![CDATA[]]></markdownProperty>
+  </properties>
+  <children/>
+</object>

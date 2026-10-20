@@ -4,5 +4,7 @@
     <stringProperty name=":Proteus-name" category="general"><![CDATA[Información sobre trazabilidad]]></stringProperty>
     <markdownProperty name="comments" category="general"><![CDATA[]]></markdownProperty>
   </properties>
-  <children/>
+  <children>
+    <child id="6iozcTzMjDPS-help"/>
+  </children>
 </object>

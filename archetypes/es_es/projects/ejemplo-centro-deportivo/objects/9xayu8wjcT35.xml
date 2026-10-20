@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<object id="9xayu8wjcT35" classes="symbolic-link" acceptedChildren=":Proteus-none" acceptedParents=":Proteus-any">
+  <properties>
+    <stringProperty name=":Proteus-name" category="general"><![CDATA[Enlace a Patronato Municipal de Deportes de Villanueva del Prado]]></stringProperty>
+    <traceProperty name="link" category="general" acceptedTargets=":Proteus-any" excludedTargets="section appendix symbolic-link" traceType=":Proteus-link">
+      <trace target="JBUaHWaBPYsv" traceType=":Proteus-link"/>
+    </traceProperty>
+  </properties>
+  <children/>
+</object>

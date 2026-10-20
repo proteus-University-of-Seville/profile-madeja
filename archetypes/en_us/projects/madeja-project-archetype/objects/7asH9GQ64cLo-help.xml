@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<object id="7asH9GQ64cLo-help" classes="traceable-object paragraph comment" acceptedChildren=":Proteus-none" acceptedParents=":Proteus-document section">
+  <properties>
+    <stringProperty name=":Proteus-name"><![CDATA[Guidance]]></stringProperty>
+    <dateProperty name=":Proteus-date">2026-10-20</dateProperty>
+    <stringProperty name="version"><![CDATA[1.0]]></stringProperty>
+    <traceProperty name="authors" category="general" acceptedTargets="stakeholder" traceType=":Proteus-author"/>
+    <traceProperty name="sources" category="general" acceptedTargets="stakeholder" traceType=":Proteus-information-source"/>
+    <markdownProperty name="text" category="detail"><![CDATA[**Mandatory** section. It must briefly describe the contents of the document and any other consideration that places the reader in the context needed to understand it.
+
+The DAS is a technical document, aimed at developers, that complements the ERS with the models of the system (logical architecture, class model, use case model and user and services interfaces). Its elements must be traced to the ERS requirements they come from.
+
+Recommended archetypes: **Paragraph**.]]></markdownProperty>
+    <traceProperty name="dependencies" category="dependencies" acceptedTargets="traceable-object" traceType=":Proteus-dependency"/>
+    <markdownProperty name="comments" category="comments"><![CDATA[]]></markdownProperty>
+  </properties>
+  <children/>
+</object>

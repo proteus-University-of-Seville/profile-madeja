@@ -4,5 +4,7 @@
     <stringProperty name=":Proteus-name" category="general"><![CDATA[Description of the current software environment]]></stringProperty>
     <markdownProperty name="comments" category="general"><![CDATA[]]></markdownProperty>
   </properties>
-  <children/>
+  <children>
+    <child id="3q4UsckBMdvr-help"/>
+  </children>
 </object>

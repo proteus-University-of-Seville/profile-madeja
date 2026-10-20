@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<object id="DptsziKrVk6Q" classes="parameter" acceptedChildren=":Proteus-none" acceptedParents="system-operation">
+  <properties>
+    <stringProperty name=":Proteus-name" category="general"><![CDATA[fecha]]></stringProperty>
+    <stringProperty name="type" category="general"><![CDATA[Date]]></stringProperty>
+    <markdownProperty name="description" category="detail"><![CDATA[Día de la reserva.]]></markdownProperty>
+    <markdownProperty name="comments" category="comments"><![CDATA[]]></markdownProperty>
+  </properties>
+  <children/>
+</object>

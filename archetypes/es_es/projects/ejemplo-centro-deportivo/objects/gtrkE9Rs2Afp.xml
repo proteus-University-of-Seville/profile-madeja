@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<object id="gtrkE9Rs2Afp" classes="specific-data" acceptedChildren=":Proteus-none" acceptedParents="information-requirement">
+  <properties>
+    <stringProperty name=":Proteus-name" category="general"><![CDATA[Familia numerosa]]></stringProperty>
+    <markdownProperty name="description" category="general"><![CDATA[si el abonado pertenece a una familia numerosa, lo que le da derecho a descuento]]></markdownProperty>
+    <markdownProperty name="comments" category="comments"><![CDATA[]]></markdownProperty>
+  </properties>
+  <children/>
+</object>

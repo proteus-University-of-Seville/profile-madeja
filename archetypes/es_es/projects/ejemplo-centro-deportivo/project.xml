@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<project id="MADEJA-IR-ejemplo">
+  <properties>
+    <stringProperty name=":Proteus-name" category="general"><![CDATA[Centro Deportivo Municipal (ejemplo MADEJA)]]></stringProperty>
+    <stringProperty name="version" category="general"><![CDATA[1.0]]></stringProperty>
+    <dateProperty name=":Proteus-date" category="general">2026-10-09</dateProperty>
+    <markdownProperty name="description" category="detail"><![CDATA[Proyecto de ejemplo para la asignatura Ingeniería de Requisitos. Contiene una Especificación de Requisitos del Sistema (ERS) y un Documento de Análisis del Sistema (DAS) según la metodología MADEJA, para un sistema de reservas de las instalaciones de un centro deportivo municipal.
+
+Cada sección empieza con un **comentario** que explica qué debe contener según MADEJA y qué arquetipos de PROTEUS conviene usar, seguido de ejemplos de esos arquetipos. Las secciones de introducción del DAS muestran los objetos de la ERS mediante **enlaces simbólicos**, para no repetir contenido.]]></markdownProperty>
+    <markdownProperty name="comments" category="comments"><![CDATA[]]></markdownProperty>
+  </properties>
+  <documents>
+    <document id="ers"/>
+    <document id="das"/>
+  </documents>
+</project>

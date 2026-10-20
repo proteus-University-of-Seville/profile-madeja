@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<object id="orJTku2FCsNF-help" classes="traceable-object paragraph comment" acceptedChildren=":Proteus-none" acceptedParents=":Proteus-document section">
+  <properties>
+    <stringProperty name=":Proteus-name"><![CDATA[Orientaciones]]></stringProperty>
+    <dateProperty name=":Proteus-date">2026-10-20</dateProperty>
+    <stringProperty name="version"><![CDATA[1.0]]></stringProperty>
+    <traceProperty name="authors" category="general" acceptedTargets="stakeholder" traceType=":Proteus-author"/>
+    <traceProperty name="sources" category="general" acceptedTargets="stakeholder" traceType=":Proteus-information-source"/>
+    <markdownProperty name="text" category="detail"><![CDATA[Un **Actor del sistema** por cada tipo de usuario u otro sistema con el que deba
+interactuar el sistema a desarrollar. Si un actor se corresponde con un actor de negocio
+de los procesos de negocio, debe trazarse hacia él con la propiedad *Dependencias*, que no se muestra
+en la tabla del objeto (para verla en el documento, use una **Matriz de trazabilidad**).
+
+La propiedad *Participa en* permite declarar los casos de uso en los que interviene el
+actor, aunque todavía no tengan pasos. Además, en el documento se muestran, con su origen,
+los casos de uso deducidos de los pasos (aquellos en los que el actor es el actor o el actor
+secundario de algún paso) y los heredados de los actores de los que hereda (propiedad
+*Hereda de*).]]></markdownProperty>
+    <traceProperty name="dependencies" category="dependencies" acceptedTargets="traceable-object" traceType=":Proteus-dependency"/>
+    <markdownProperty name="comments" category="comments"><![CDATA[]]></markdownProperty>
+  </properties>
+  <children/>
+</object>

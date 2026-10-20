@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_ReservaAImplantar" targetNamespace="http://proteus.example/madeja/reserva-a-implantar">
+  <bpmn:collaboration id="Collaboration_ReservaAImplantar">
+    <bpmn:participant id="Participant_Abonado" name="Abonado" />
+    <bpmn:participant id="Participant_Centro" name="Centro deportivo municipal" processRef="Process_Centro" />
+    <bpmn:participant id="Participant_Pago" name="Plataforma de pago municipal" />
+    <bpmn:messageFlow id="MF_Consulta" name="Consulta de disponibilidad" sourceRef="Participant_Abonado" targetRef="StartEvent_Consulta" />
+    <bpmn:messageFlow id="MF_Disponibilidad" name="Disponibilidad de las instalaciones" sourceRef="Task_Disponibilidad" targetRef="Participant_Abonado" />
+    <bpmn:messageFlow id="MF_Solicitud" name="Solicitud de reserva (instalación y franja)" sourceRef="Participant_Abonado" targetRef="Event_Solicitud" />
+    <bpmn:messageFlow id="MF_Rechazo" name="Motivo del rechazo de la reserva" sourceRef="Task_Rechazo" targetRef="Participant_Abonado" />
+    <bpmn:messageFlow id="MF_Cobro" name="Solicitud de cobro" sourceRef="Task_Cobro" targetRef="Participant_Pago" />
+    <bpmn:messageFlow id="MF_ResultadoPago" name="Resultado del pago" sourceRef="Participant_Pago" targetRef="Task_ResultadoPago" />
+    <bpmn:messageFlow id="MF_FalloPago" name="Aviso del fallo del pago" sourceRef="Task_FalloPago" targetRef="Participant_Abonado" />
+    <bpmn:messageFlow id="MF_Justificante" name="Justificante de la reserva" sourceRef="Task_Confirmar" targetRef="Participant_Abonado" />
+  </bpmn:collaboration>
+  <bpmn:process id="Process_Centro" isExecutable="false">
+    <bpmn:laneSet id="LaneSet_Centro">
+      <bpmn:lane id="Lane_Sistema" name="Sistema de reservas">
+        <bpmn:flowNodeRef>StartEvent_Consulta</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_Disponibilidad</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Event_Solicitud</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_Reglas</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Gateway_Permitida</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_Rechazo</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Event_FinRechazada</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_Cobro</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_ResultadoPago</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Gateway_PagoCorrecto</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_FalloPago</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Event_FinNoRealizada</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_Confirmar</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_Recepcionista" name="Recepcionista">
+        <bpmn:flowNodeRef>Event_DiaReserva</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_Acceso</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Event_FinAtendida</bpmn:flowNodeRef>
+      </bpmn:lane>
+    </bpmn:laneSet>
+    <bpmn:startEvent id="StartEvent_Consulta" name="Consulta de disponibilidad recibida">
+      <bpmn:outgoing>SF_1</bpmn:outgoing>
+      <bpmn:messageEventDefinition id="MED_Consulta" />
+    </bpmn:startEvent>
+    <bpmn:sendTask id="Task_Disponibilidad" name="Enviar la disponibilidad">
+      <bpmn:incoming>SF_1</bpmn:incoming>
+      <bpmn:outgoing>SF_2</bpmn:outgoing>
+    </bpmn:sendTask>
+    <bpmn:intermediateCatchEvent id="Event_Solicitud" name="Solicitud de reserva recibida">
+      <bpmn:incoming>SF_2</bpmn:incoming>
+      <bpmn:outgoing>SF_3</bpmn:outgoing>
+      <bpmn:messageEventDefinition id="MED_Solicitud" />
+    </bpmn:intermediateCatchEvent>
+    <bpmn:businessRuleTask id="Task_Reglas" name="Comprobar las reglas de reserva">
+      <bpmn:incoming>SF_3</bpmn:incoming>
+      <bpmn:outgoing>SF_4</bpmn:outgoing>
+    </bpmn:businessRuleTask>
+    <bpmn:exclusiveGateway id="Gateway_Permitida" name="¿Reserva permitida?">
+      <bpmn:incoming>SF_4</bpmn:incoming>
+      <bpmn:outgoing>SF_Si</bpmn:outgoing>
+      <bpmn:outgoing>SF_No</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:sendTask id="Task_Rechazo" name="Informar del motivo del rechazo">
+      <bpmn:incoming>SF_No</bpmn:incoming>
+      <bpmn:outgoing>SF_R1</bpmn:outgoing>
+    </bpmn:sendTask>
+    <bpmn:endEvent id="Event_FinRechazada" name="Reserva rechazada">
+      <bpmn:incoming>SF_R1</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sendTask id="Task_Cobro" name="Solicitar el cobro de la reserva">
+      <bpmn:incoming>SF_Si</bpmn:incoming>
+      <bpmn:outgoing>SF_5</bpmn:outgoing>
+    </bpmn:sendTask>
+    <bpmn:receiveTask id="Task_ResultadoPago" name="Recibir el resultado del pago">
+      <bpmn:incoming>SF_5</bpmn:incoming>
+      <bpmn:outgoing>SF_6</bpmn:outgoing>
+    </bpmn:receiveTask>
+    <bpmn:exclusiveGateway id="Gateway_PagoCorrecto" name="¿Pago correcto?">
+      <bpmn:incoming>SF_6</bpmn:incoming>
+      <bpmn:outgoing>SF_PagoSi</bpmn:outgoing>
+      <bpmn:outgoing>SF_PagoNo</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:sendTask id="Task_FalloPago" name="Informar del fallo del pago">
+      <bpmn:incoming>SF_PagoNo</bpmn:incoming>
+      <bpmn:outgoing>SF_R2</bpmn:outgoing>
+    </bpmn:sendTask>
+    <bpmn:endEvent id="Event_FinNoRealizada" name="Reserva no realizada">
+      <bpmn:incoming>SF_R2</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sendTask id="Task_Confirmar" name="Confirmar la reserva">
+      <bpmn:incoming>SF_PagoSi</bpmn:incoming>
+      <bpmn:outgoing>SF_7</bpmn:outgoing>
+    </bpmn:sendTask>
+    <bpmn:intermediateCatchEvent id="Event_DiaReserva" name="Llega el día de la reserva">
+      <bpmn:incoming>SF_7</bpmn:incoming>
+      <bpmn:outgoing>SF_8</bpmn:outgoing>
+      <bpmn:timerEventDefinition id="TED_DiaReserva" />
+    </bpmn:intermediateCatchEvent>
+    <bpmn:manualTask id="Task_Acceso" name="Consultar las reservas del día y controlar el acceso">
+      <bpmn:incoming>SF_8</bpmn:incoming>
+      <bpmn:outgoing>SF_9</bpmn:outgoing>
+    </bpmn:manualTask>
+    <bpmn:endEvent id="Event_FinAtendida" name="Reserva atendida">
+      <bpmn:incoming>SF_9</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="SF_1" sourceRef="StartEvent_Consulta" targetRef="Task_Disponibilidad" />
+    <bpmn:sequenceFlow id="SF_2" sourceRef="Task_Disponibilidad" targetRef="Event_Solicitud" />
+    <bpmn:sequenceFlow id="SF_3" sourceRef="Event_Solicitud" targetRef="Task_Reglas" />
+    <bpmn:sequenceFlow id="SF_4" sourceRef="Task_Reglas" targetRef="Gateway_Permitida" />
+    <bpmn:sequenceFlow id="SF_Si" name="Sí" sourceRef="Gateway_Permitida" targetRef="Task_Cobro" />
+    <bpmn:sequenceFlow id="SF_No" name="No" sourceRef="Gateway_Permitida" targetRef="Task_Rechazo" />
+    <bpmn:sequenceFlow id="SF_R1" sourceRef="Task_Rechazo" targetRef="Event_FinRechazada" />
+    <bpmn:sequenceFlow id="SF_5" sourceRef="Task_Cobro" targetRef="Task_ResultadoPago" />
+    <bpmn:sequenceFlow id="SF_6" sourceRef="Task_ResultadoPago" targetRef="Gateway_PagoCorrecto" />
+    <bpmn:sequenceFlow id="SF_PagoSi" name="Sí" sourceRef="Gateway_PagoCorrecto" targetRef="Task_Confirmar" />
+    <bpmn:sequenceFlow id="SF_PagoNo" name="No" sourceRef="Gateway_PagoCorrecto" targetRef="Task_FalloPago" />
+    <bpmn:sequenceFlow id="SF_R2" sourceRef="Task_FalloPago" targetRef="Event_FinNoRealizada" />
+    <bpmn:sequenceFlow id="SF_7" sourceRef="Task_Confirmar" targetRef="Event_DiaReserva" />
+    <bpmn:sequenceFlow id="SF_8" sourceRef="Event_DiaReserva" targetRef="Task_Acceso" />
+    <bpmn:sequenceFlow id="SF_9" sourceRef="Task_Acceso" targetRef="Event_FinAtendida" />
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_ReservaAImplantar">
+    <bpmndi:BPMNPlane id="BPMNPlane_ReservaAImplantar" bpmnElement="Collaboration_ReservaAImplantar">
+      <bpmndi:BPMNShape id="Participant_Abonado_di" bpmnElement="Participant_Abonado" isHorizontal="true">
+        <dc:Bounds x="160" y="40" width="1280" height="60" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Participant_Centro_di" bpmnElement="Participant_Centro" isHorizontal="true">
+        <dc:Bounds x="160" y="190" width="1280" height="420" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_Sistema_di" bpmnElement="Lane_Sistema" isHorizontal="true">
+        <dc:Bounds x="190" y="190" width="1250" height="280" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_Recepcionista_di" bpmnElement="Lane_Recepcionista" isHorizontal="true">
+        <dc:Bounds x="190" y="470" width="1250" height="140" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Participant_Pago_di" bpmnElement="Participant_Pago" isHorizontal="true">
+        <dc:Bounds x="160" y="690" width="1280" height="60" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="StartEvent_Consulta_di" bpmnElement="StartEvent_Consulta">
+        <dc:Bounds x="250" y="272" width="36" height="36" />
+        <bpmndi:BPMNLabel><dc:Bounds x="226" y="314" width="84" height="54" /></bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_Disponibilidad_di" bpmnElement="Task_Disponibilidad">
+        <dc:Bounds x="314" y="250" width="90" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_Solicitud_di" bpmnElement="Event_Solicitud">
+        <dc:Bounds x="432" y="272" width="36" height="36" />
+        <bpmndi:BPMNLabel><dc:Bounds x="410" y="314" width="80" height="54" /></bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_Reglas_di" bpmnElement="Task_Reglas">
+        <dc:Bounds x="496" y="250" width="90" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_Permitida_di" bpmnElement="Gateway_Permitida" isMarkerVisible="true">
+        <dc:Bounds x="614" y="268" width="44" height="44" />
+        <bpmndi:BPMNLabel><dc:Bounds x="585" y="226" width="72" height="40" /></bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_Rechazo_di" bpmnElement="Task_Rechazo">
+        <dc:Bounds x="600" y="370" width="110" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_FinRechazada_di" bpmnElement="Event_FinRechazada">
+        <dc:Bounds x="738" y="392" width="36" height="36" />
+        <bpmndi:BPMNLabel><dc:Bounds x="722" y="434" width="66" height="40" /></bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_Cobro_di" bpmnElement="Task_Cobro">
+        <dc:Bounds x="718" y="250" width="90" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_ResultadoPago_di" bpmnElement="Task_ResultadoPago">
+        <dc:Bounds x="836" y="250" width="90" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_PagoCorrecto_di" bpmnElement="Gateway_PagoCorrecto" isMarkerVisible="true">
+        <dc:Bounds x="954" y="268" width="44" height="44" />
+        <bpmndi:BPMNLabel><dc:Bounds x="942" y="226" width="72" height="40" /></bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_FalloPago_di" bpmnElement="Task_FalloPago">
+        <dc:Bounds x="940" y="370" width="110" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_FinNoRealizada_di" bpmnElement="Event_FinNoRealizada">
+        <dc:Bounds x="1078" y="392" width="36" height="36" />
+        <bpmndi:BPMNLabel><dc:Bounds x="1050" y="434" width="92" height="40" /></bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_Confirmar_di" bpmnElement="Task_Confirmar">
+        <dc:Bounds x="1058" y="250" width="90" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_DiaReserva_di" bpmnElement="Event_DiaReserva">
+        <dc:Bounds x="1176" y="522" width="36" height="36" />
+        <bpmndi:BPMNLabel><dc:Bounds x="1146" y="564" width="96" height="40" /></bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_Acceso_di" bpmnElement="Task_Acceso">
+        <dc:Bounds x="1240" y="490" width="100" height="100" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_FinAtendida_di" bpmnElement="Event_FinAtendida">
+        <dc:Bounds x="1368" y="522" width="36" height="36" />
+        <bpmndi:BPMNLabel><dc:Bounds x="1346" y="564" width="80" height="27" /></bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SF_1_di" bpmnElement="SF_1"><di:waypoint x="286" y="290" /><di:waypoint x="314" y="290" /></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SF_2_di" bpmnElement="SF_2"><di:waypoint x="404" y="290" /><di:waypoint x="432" y="290" /></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SF_3_di" bpmnElement="SF_3"><di:waypoint x="468" y="290" /><di:waypoint x="496" y="290" /></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SF_4_di" bpmnElement="SF_4"><di:waypoint x="586" y="290" /><di:waypoint x="614" y="290" /></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SF_Si_di" bpmnElement="SF_Si"><di:waypoint x="658" y="290" /><di:waypoint x="718" y="290" />
+        <bpmndi:BPMNLabel><dc:Bounds x="665" y="272" width="20" height="14" /></bpmndi:BPMNLabel></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SF_No_di" bpmnElement="SF_No"><di:waypoint x="636" y="312" /><di:waypoint x="636" y="370" />
+        <bpmndi:BPMNLabel><dc:Bounds x="644" y="336" width="20" height="14" /></bpmndi:BPMNLabel></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SF_R1_di" bpmnElement="SF_R1"><di:waypoint x="710" y="410" /><di:waypoint x="738" y="410" /></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SF_5_di" bpmnElement="SF_5"><di:waypoint x="808" y="290" /><di:waypoint x="836" y="290" /></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SF_6_di" bpmnElement="SF_6"><di:waypoint x="926" y="290" /><di:waypoint x="954" y="290" /></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SF_PagoSi_di" bpmnElement="SF_PagoSi"><di:waypoint x="998" y="290" /><di:waypoint x="1058" y="290" />
+        <bpmndi:BPMNLabel><dc:Bounds x="1005" y="272" width="20" height="14" /></bpmndi:BPMNLabel></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SF_PagoNo_di" bpmnElement="SF_PagoNo"><di:waypoint x="976" y="312" /><di:waypoint x="976" y="370" />
+        <bpmndi:BPMNLabel><dc:Bounds x="984" y="336" width="20" height="14" /></bpmndi:BPMNLabel></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SF_R2_di" bpmnElement="SF_R2"><di:waypoint x="1050" y="410" /><di:waypoint x="1078" y="410" /></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SF_7_di" bpmnElement="SF_7"><di:waypoint x="1148" y="290" /><di:waypoint x="1194" y="290" /><di:waypoint x="1194" y="522" /></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SF_8_di" bpmnElement="SF_8"><di:waypoint x="1212" y="540" /><di:waypoint x="1240" y="540" /></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SF_9_di" bpmnElement="SF_9"><di:waypoint x="1340" y="540" /><di:waypoint x="1368" y="540" /></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="MF_Consulta_di" bpmnElement="MF_Consulta"><di:waypoint x="268" y="100" /><di:waypoint x="268" y="272" />
+        <bpmndi:BPMNLabel><dc:Bounds x="170" y="112" width="92" height="40" /></bpmndi:BPMNLabel></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="MF_Disponibilidad_di" bpmnElement="MF_Disponibilidad"><di:waypoint x="359" y="250" /><di:waypoint x="359" y="100" />
+        <bpmndi:BPMNLabel><dc:Bounds x="365" y="112" width="80" height="54" /></bpmndi:BPMNLabel></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="MF_Solicitud_di" bpmnElement="MF_Solicitud"><di:waypoint x="450" y="100" /><di:waypoint x="450" y="272" />
+        <bpmndi:BPMNLabel><dc:Bounds x="456" y="112" width="160" height="40" /></bpmndi:BPMNLabel></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="MF_Rechazo_di" bpmnElement="MF_Rechazo"><di:waypoint x="705" y="370" /><di:waypoint x="705" y="100" />
+        <bpmndi:BPMNLabel><dc:Bounds x="711" y="112" width="140" height="40" /></bpmndi:BPMNLabel></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="MF_Cobro_di" bpmnElement="MF_Cobro"><di:waypoint x="795" y="330" /><di:waypoint x="795" y="690" />
+        <bpmndi:BPMNLabel><dc:Bounds x="670" y="635" width="120" height="27" /></bpmndi:BPMNLabel></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="MF_ResultadoPago_di" bpmnElement="MF_ResultadoPago"><di:waypoint x="881" y="690" /><di:waypoint x="881" y="330" />
+        <bpmndi:BPMNLabel><dc:Bounds x="887" y="635" width="130" height="27" /></bpmndi:BPMNLabel></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="MF_FalloPago_di" bpmnElement="MF_FalloPago"><di:waypoint x="1030" y="370" /><di:waypoint x="1030" y="100" />
+        <bpmndi:BPMNLabel><dc:Bounds x="860" y="112" width="164" height="27" /></bpmndi:BPMNLabel></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="MF_Justificante_di" bpmnElement="MF_Justificante"><di:waypoint x="1103" y="250" /><di:waypoint x="1103" y="100" />
+        <bpmndi:BPMNLabel><dc:Bounds x="1109" y="112" width="150" height="27" /></bpmndi:BPMNLabel></bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

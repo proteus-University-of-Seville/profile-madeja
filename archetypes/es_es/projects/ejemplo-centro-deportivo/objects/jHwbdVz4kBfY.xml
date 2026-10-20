@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<object id="jHwbdVz4kBfY" classes="attribute" acceptedChildren=":Proteus-none" acceptedParents="entity-class association">
+  <properties>
+    <stringProperty name=":Proteus-name" category="general"><![CDATA[duracion]]></stringProperty>
+    <stringProperty name="type" category="general"><![CDATA[Integer]]></stringProperty>
+    <markdownProperty name="description" category="detail"><![CDATA[Número de franjas horarias reservadas.]]></markdownProperty>
+    <markdownProperty name="comments" category="comments"><![CDATA[]]></markdownProperty>
+  </properties>
+  <children/>
+</object>

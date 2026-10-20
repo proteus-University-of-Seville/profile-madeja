@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<object id="MCxb8FGgNUh7" classes="use-case-action actor-action actor-system-action" acceptedChildren=":Proteus-none" acceptedParents="use-case-exception">
+  <properties>
+    <stringProperty name=":Proteus-name" category="general"><![CDATA[Actor-system action]]></stringProperty>
+    <traceProperty name="actor" category="general" acceptedTargets="system-actor" traceType=":Proteus-dependency" maxTargetsNumber="1">
+      <trace target="A534sbmECb6i" traceType=":Proteus-dependency"/>
+    </traceProperty>
+    <markdownProperty name="description" category="general" tooltip="actor-action-description"><![CDATA[requests the system to cancel the booking on behalf of the member]]></markdownProperty>
+    <markdownProperty name="comments" category="comments"><![CDATA[]]></markdownProperty>
+  </properties>
+  <children/>
+</object>

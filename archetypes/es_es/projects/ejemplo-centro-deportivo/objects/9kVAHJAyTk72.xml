@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<object id="9kVAHJAyTk72" classes="conditional-branch" acceptedChildren="use-case-step" acceptedParents="use-case">
+  <properties>
+    <stringProperty name=":Proteus-name" category="general"><![CDATA[Rama condicional]]></stringProperty>
+    <markdownProperty name="condition" category="general" tooltip="branch-condition"><![CDATA[faltan menos de 24 horas para el comienzo de la reserva]]></markdownProperty>
+    <enumProperty name="termination" category="general" tooltip="branch-termination" choices="resumes ok-ending failure-ending">failure-ending</enumProperty>
+    <markdownProperty name="comments" category="comments"><![CDATA[]]></markdownProperty>
+  </properties>
+  <children numbered="true">
+    <child id="7QCGsW9S5hah"/>
+  </children>
+</object>

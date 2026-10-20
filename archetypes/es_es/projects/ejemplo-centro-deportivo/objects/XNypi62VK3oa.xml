@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<object id="XNypi62VK3oa" classes="business-requirement business-actor" acceptedChildren=":Proteus-none" acceptedParents=":Proteus-any">
+  <properties>
+    <codeProperty name=":Proteus-code" category="general" inmutable="true">
+      <prefix><![CDATA[ANA-]]></prefix>
+      <number>001</number>
+      <suffix><![CDATA[]]></suffix>
+    </codeProperty>
+    <stringProperty name=":Proteus-name" category="general"><![CDATA[Recepcionista]]></stringProperty>
+    <dateProperty name=":Proteus-date" category="general">2026-10-09</dateProperty>
+    <stringProperty name="version" category="general"><![CDATA[1.0]]></stringProperty>
+    <traceProperty name="authors" category="general" acceptedTargets="stakeholder" traceType=":Proteus-author">
+      <trace target="yfvUKfMBmAzv" traceType=":Proteus-author"/>
+    </traceProperty>
+    <traceProperty name="sources" category="general" acceptedTargets="stakeholder" traceType=":Proteus-information-source">
+      <trace target="dkQvhpL4QSyk" traceType=":Proteus-information-source"/>
+    </traceProperty>
+    <markdownProperty name="description" category="detail"><![CDATA[Este actor de negocio representa a los empleados de la recepción del centro deportivo, que atienden a los usuarios, gestionan las reservas y controlan el acceso a las instalaciones.]]></markdownProperty>
+    <traceProperty name="participates-in" category="detail" acceptedTargets="business-process" traceType=":Proteus-dependency">
+      <trace target="NsVjfLhRZ4CA" traceType=":Proteus-dependency"/>
+      <trace target="qFcmxWFFxdWN" traceType=":Proteus-dependency"/>
+    </traceProperty>
+    <traceProperty name="dependencies" category="dependencies" acceptedTargets="traceable-object business-requirement" traceType=":Proteus-dependency"/>
+    <markdownProperty name="comments" category="comments"><![CDATA[]]></markdownProperty>
+  </properties>
+  <children/>
+</object>

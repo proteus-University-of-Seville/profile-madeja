@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<object id="6inB9HZDFX8i-help" classes="traceable-object paragraph comment" acceptedChildren=":Proteus-none" acceptedParents=":Proteus-document section">
+  <properties>
+    <stringProperty name=":Proteus-name"><![CDATA[Guidance]]></stringProperty>
+    <dateProperty name=":Proteus-date">2026-10-20</dateProperty>
+    <stringProperty name="version"><![CDATA[1.0]]></stringProperty>
+    <traceProperty name="authors" category="general" acceptedTargets="stakeholder" traceType=":Proteus-author"/>
+    <traceProperty name="sources" category="general" acceptedTargets="stakeholder" traceType=":Proteus-information-source"/>
+    <markdownProperty name="text" category="detail"><![CDATA[A **General requirement** for each feature or objective of the system (*system features*). They can come from previous project documents and be decomposed hierarchically: a general requirement accepts other general requirements as children.]]></markdownProperty>
+    <traceProperty name="dependencies" category="dependencies" acceptedTargets="traceable-object" traceType=":Proteus-dependency"/>
+    <markdownProperty name="comments" category="comments"><![CDATA[]]></markdownProperty>
+  </properties>
+  <children/>
+</object>

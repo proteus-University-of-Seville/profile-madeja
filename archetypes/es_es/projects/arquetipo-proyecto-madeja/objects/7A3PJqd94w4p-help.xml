@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<object id="7A3PJqd94w4p-help" classes="traceable-object paragraph comment" acceptedChildren=":Proteus-none" acceptedParents=":Proteus-document section">
+  <properties>
+    <stringProperty name=":Proteus-name"><![CDATA[Orientaciones]]></stringProperty>
+    <dateProperty name=":Proteus-date">2026-10-20</dateProperty>
+    <stringProperty name="version"><![CDATA[1.0]]></stringProperty>
+    <traceProperty name="authors" category="general" acceptedTargets="stakeholder" traceType=":Proteus-author"/>
+    <traceProperty name="sources" category="general" acceptedTargets="stakeholder" traceType=":Proteus-information-source"/>
+    <markdownProperty name="text" category="detail"><![CDATA[Contiene los requisitos no funcionales, clasificados según la taxonomía de MADEJA en las subsecciones siguientes. Cada uno se especifica con un **Requisito no funcional** y debe establecer, de la forma más objetiva y medible posible, el nivel que debe alcanzar el
+sistema.
+
+Si para algún tipo de requisito no funcional no se ha identificado ninguno, se debe indicar mediante un párrafo en la sección correspondiente.]]></markdownProperty>
+    <traceProperty name="dependencies" category="dependencies" acceptedTargets="traceable-object" traceType=":Proteus-dependency"/>
+    <markdownProperty name="comments" category="comments"><![CDATA[]]></markdownProperty>
+  </properties>
+  <children/>
+</object>

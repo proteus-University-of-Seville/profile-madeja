@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<object id="5c6oV9TunFjk-help" classes="traceable-object paragraph comment" acceptedChildren=":Proteus-none" acceptedParents=":Proteus-document section">
+  <properties>
+    <stringProperty name=":Proteus-name"><![CDATA[Guidance]]></stringProperty>
+    <dateProperty name=":Proteus-date">2026-10-20</dateProperty>
+    <stringProperty name="version"><![CDATA[1.0]]></stringProperty>
+    <traceProperty name="authors" category="general" acceptedTargets="stakeholder" traceType=":Proteus-author"/>
+    <traceProperty name="sources" category="general" acceptedTargets="stakeholder" traceType=":Proteus-information-source"/>
+    <markdownProperty name="text" category="detail"><![CDATA[An **Information requirement** for each concept about which the system must store information to offer the functionality of the use cases and the other requirements. Each piece of data to be stored is a **Specific data** (child of the requirement), with its name and description.]]></markdownProperty>
+    <traceProperty name="dependencies" category="dependencies" acceptedTargets="traceable-object" traceType=":Proteus-dependency"/>
+    <markdownProperty name="comments" category="comments"><![CDATA[]]></markdownProperty>
+  </properties>
+  <children/>
+</object>

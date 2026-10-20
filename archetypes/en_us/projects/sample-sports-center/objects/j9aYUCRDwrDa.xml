@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<object id="j9aYUCRDwrDa" classes="use-case-exception" acceptedChildren="use-case-action" acceptedParents="use-case-step">
+  <properties>
+    <stringProperty name=":Proteus-name" category="general"><![CDATA[Exception]]></stringProperty>
+    <markdownProperty name="condition" category="general" tooltip="exception-condition"><![CDATA[the payment platform does not respond in 30 seconds]]></markdownProperty>
+    <enumProperty name="termination" category="general" tooltip="exception-termination" choices="resumes failure-ending">failure-ending</enumProperty>
+    <markdownProperty name="comments" category="comments"><![CDATA[]]></markdownProperty>
+  </properties>
+  <children>
+    <child id="sEBSdQjamsu2"/>
+  </children>
+</object>

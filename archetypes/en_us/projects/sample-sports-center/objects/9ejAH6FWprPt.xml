@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<object id="9ejAH6FWprPt" classes="attribute" acceptedChildren=":Proteus-none" acceptedParents="entity-class association">
+  <properties>
+    <stringProperty name=":Proteus-name" category="general"><![CDATA[status]]></stringProperty>
+    <stringProperty name="type" category="general"><![CDATA[BookingStatus]]></stringProperty>
+    <markdownProperty name="description" category="detail"><![CDATA[Status of the booking.]]></markdownProperty>
+    <markdownProperty name="comments" category="comments"><![CDATA[]]></markdownProperty>
+  </properties>
+  <children/>
+</object>

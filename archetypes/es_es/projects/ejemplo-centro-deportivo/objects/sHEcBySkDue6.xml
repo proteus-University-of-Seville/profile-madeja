@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<object id="sHEcBySkDue6" classes="traceability-matrix" acceptedChildren=":Proteus-none" acceptedParents=":Proteus-any">
+  <properties>
+    <codeProperty name=":Proteus-code" category="general" inmutable="true">
+      <prefix><![CDATA[MTZ-]]></prefix>
+      <number>003</number>
+      <suffix><![CDATA[]]></suffix>
+    </codeProperty>
+    <stringProperty name=":Proteus-name" category="general"><![CDATA[Clases frente a requisitos de información]]></stringProperty>
+    <dateProperty name=":Proteus-date" category="general">2026-10-09</dateProperty>
+    <stringProperty name="version" category="general"><![CDATA[1.0]]></stringProperty>
+    <traceProperty name="authors" category="general" acceptedTargets="stakeholder" traceType=":Proteus-author"/>
+    <traceProperty name="sources" category="general" acceptedTargets="stakeholder" traceType=":Proteus-information-source"/>
+    <markdownProperty name="description" category="detail"><![CDATA[Clases entidad y enumerados frente a los requisitos de información de la ERS de los que proceden.]]></markdownProperty>
+    <classListProperty name="row-classes" category="detail">
+      <class>entity-class</class>
+      <class>enumeration</class>
+    </classListProperty>
+    <classListProperty name="col-classes" category="detail">
+      <class>information-requirement</class>
+    </classListProperty>
+    <traceTypeListProperty name="trace-types" category="detail">
+      <type>:Proteus-dependency</type>
+    </traceTypeListProperty>
+    <markdownProperty name="comments" category="comments"><![CDATA[]]></markdownProperty>
+  </properties>
+  <children/>
+</object>

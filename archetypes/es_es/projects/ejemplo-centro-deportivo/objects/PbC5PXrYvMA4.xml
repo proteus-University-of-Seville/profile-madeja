@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<object id="PbC5PXrYvMA4" classes="enum-value" acceptedChildren=":Proteus-none" acceptedParents="enumeration">
+  <properties>
+    <stringProperty name=":Proteus-name" category="general"><![CDATA[PENDIENTE_PAGO]]></stringProperty>
+    <markdownProperty name="description" category="detail"><![CDATA[La reserva se ha creado y se está cobrando.]]></markdownProperty>
+    <markdownProperty name="comments" category="comments"><![CDATA[]]></markdownProperty>
+  </properties>
+  <children/>
+</object>

@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<object id="6bHbamXb3CsA" classes="enum-value" acceptedChildren=":Proteus-none" acceptedParents="enumeration">
+  <properties>
+    <stringProperty name=":Proteus-name" category="general"><![CDATA[DISFRUTADA]]></stringProperty>
+    <markdownProperty name="description" category="detail"><![CDATA[La franja horaria de la reserva ya ha terminado.]]></markdownProperty>
+    <markdownProperty name="comments" category="comments"><![CDATA[]]></markdownProperty>
+  </properties>
+  <children/>
+</object>

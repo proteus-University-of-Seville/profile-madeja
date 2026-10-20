@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<object id="9ksVmTKgUmmt-help" classes="traceable-object paragraph comment" acceptedChildren=":Proteus-none" acceptedParents=":Proteus-document section">
+  <properties>
+    <stringProperty name=":Proteus-name"><![CDATA[Orientaciones]]></stringProperty>
+    <dateProperty name=":Proteus-date">2026-10-20</dateProperty>
+    <stringProperty name="version"><![CDATA[1.0]]></stringProperty>
+    <traceProperty name="authors" category="general" acceptedTargets="stakeholder" traceType=":Proteus-author"/>
+    <traceProperty name="sources" category="general" acceptedTargets="stakeholder" traceType=":Proteus-information-source"/>
+    <markdownProperty name="text" category="detail"><![CDATA[Recoge las organizaciones y las personas que participan en el proyecto, tanto del lado
+del cliente como del equipo de desarrollo, en las dos subsecciones siguientes.
+
+Los participantes se usan después como **autores** y **fuentes** de los demás elementos
+del documento (pestaña *General* de su formulario), lo que permite saber quién ha
+especificado cada requisito y de quién procede la información.]]></markdownProperty>
+    <traceProperty name="dependencies" category="dependencies" acceptedTargets="traceable-object" traceType=":Proteus-dependency"/>
+    <markdownProperty name="comments" category="comments"><![CDATA[]]></markdownProperty>
+  </properties>
+  <children/>
+</object>

@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<object id="hiCrc8VFT4TX" classes="use-case-step use-case-action actor-action actor-system-action actor-system-step" acceptedChildren="use-case-exception" acceptedParents="use-case conditional-branch">
+  <properties>
+    <stringProperty name=":Proteus-name" category="general"><![CDATA[Paso actor-sistema]]></stringProperty>
+    <markdownProperty name="condition" category="general" tooltip="step-condition"><![CDATA[]]></markdownProperty>
+    <traceProperty name="actor" category="general" acceptedTargets="system-actor" traceType=":Proteus-dependency" maxTargetsNumber="1">
+      <trace target="AZje3dtCLBTJ" traceType=":Proteus-dependency"/>
+    </traceProperty>
+    <markdownProperty name="description" category="general" tooltip="actor-action-description"><![CDATA[cobra el importe e informa al sistema del resultado]]></markdownProperty>
+    <markdownProperty name="comments" category="comments"><![CDATA[]]></markdownProperty>
+  </properties>
+  <children>
+    <child id="j9aYUCRDwrDa"/>
+  </children>
+</object>

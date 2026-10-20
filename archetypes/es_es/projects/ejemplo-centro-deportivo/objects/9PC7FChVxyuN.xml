@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<object id="9PC7FChVxyuN" classes="traceable-object paragraph comment" acceptedChildren=":Proteus-none" acceptedParents=":Proteus-document section">
+  <properties>
+    <stringProperty name=":Proteus-name" category="general"><![CDATA[Orientaciones]]></stringProperty>
+    <dateProperty name=":Proteus-date" category="general">2026-10-09</dateProperty>
+    <stringProperty name="version" category="general"><![CDATA[1.0]]></stringProperty>
+    <traceProperty name="authors" category="general" acceptedTargets="stakeholder" traceType=":Proteus-author"/>
+    <traceProperty name="sources" category="general" acceptedTargets="stakeholder" traceType=":Proteus-information-source"/>
+    <markdownProperty name="text" category="detail"><![CDATA[Sección **opcional**. Un **Subsistema** por cada agrupación lógica de requisitos. Los
+subsistemas sirven para facilitar la comprensión de los requisitos y no implican que
+existan módulos software equivalentes en el diseño. Puede omitirse si el sistema es
+suficientemente sencillo. Se recomienda incluir diagramas.
+
+Si hay subsistemas, el catálogo de requisitos puede organizarse en subsecciones, una por
+subsistema.]]></markdownProperty>
+    <traceProperty name="dependencies" category="dependencies" acceptedTargets="traceable-object" traceType=":Proteus-dependency"/>
+    <markdownProperty name="comments" category="comments"><![CDATA[]]></markdownProperty>
+  </properties>
+  <children/>
+</object>

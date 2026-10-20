@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_ReservaActual" targetNamespace="http://proteus.example/madeja/reserva-actual">
+  <bpmn:collaboration id="Collaboration_ReservaActual">
+    <bpmn:participant id="Participant_Usuario" name="Usuario" />
+    <bpmn:participant id="Participant_Centro" name="Centro deportivo municipal" processRef="Process_Centro" />
+    <bpmn:messageFlow id="MF_Solicitud" name="Solicitud de pista" sourceRef="Participant_Usuario" targetRef="StartEvent_Solicitud" />
+    <bpmn:messageFlow id="MF_Propuesta" name="Propuesta de otra franja o instalación" sourceRef="Task_Proponer" targetRef="Participant_Usuario" />
+    <bpmn:messageFlow id="MF_Respuesta" name="Aceptación o desistimiento" sourceRef="Participant_Usuario" targetRef="Task_Respuesta" />
+    <bpmn:messageFlow id="MF_Confirmacion" name="Confirmación de la reserva" sourceRef="Task_Confirmar" targetRef="Participant_Usuario" />
+    <bpmn:messageFlow id="MF_Pago" name="Pago en efectivo" sourceRef="Participant_Usuario" targetRef="Event_Pago" />
+  </bpmn:collaboration>
+  <bpmn:process id="Process_Centro" isExecutable="false">
+    <bpmn:startEvent id="StartEvent_Solicitud" name="Solicitud de pista recibida">
+      <bpmn:outgoing>SF_1</bpmn:outgoing>
+      <bpmn:messageEventDefinition id="MED_Solicitud" />
+    </bpmn:startEvent>
+    <bpmn:manualTask id="Task_Consultar" name="Consultar la hoja de reservas en papel">
+      <bpmn:incoming>SF_1</bpmn:incoming>
+      <bpmn:outgoing>SF_2</bpmn:outgoing>
+    </bpmn:manualTask>
+    <bpmn:exclusiveGateway id="Gateway_Libre" name="¿Hay pista libre en la franja solicitada?">
+      <bpmn:incoming>SF_2</bpmn:incoming>
+      <bpmn:outgoing>SF_Si</bpmn:outgoing>
+      <bpmn:outgoing>SF_No</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:exclusiveGateway id="Gateway_Union">
+      <bpmn:incoming>SF_Si</bpmn:incoming>
+      <bpmn:incoming>SF_AceptaSi</bpmn:incoming>
+      <bpmn:outgoing>SF_3</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:manualTask id="Task_Anotar" name="Anotar la reserva en la hoja">
+      <bpmn:incoming>SF_3</bpmn:incoming>
+      <bpmn:outgoing>SF_4</bpmn:outgoing>
+    </bpmn:manualTask>
+    <bpmn:sendTask id="Task_Confirmar" name="Confirmar la reserva al usuario">
+      <bpmn:incoming>SF_4</bpmn:incoming>
+      <bpmn:outgoing>SF_5</bpmn:outgoing>
+    </bpmn:sendTask>
+    <bpmn:intermediateCatchEvent id="Event_Pago" name="Pago recibido al llegar al centro">
+      <bpmn:incoming>SF_5</bpmn:incoming>
+      <bpmn:outgoing>SF_6</bpmn:outgoing>
+      <bpmn:messageEventDefinition id="MED_Pago" />
+    </bpmn:intermediateCatchEvent>
+    <bpmn:endEvent id="Event_FinReserva" name="Reserva realizada">
+      <bpmn:incoming>SF_6</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sendTask id="Task_Proponer" name="Proponer otra franja o instalación">
+      <bpmn:incoming>SF_No</bpmn:incoming>
+      <bpmn:outgoing>SF_9</bpmn:outgoing>
+    </bpmn:sendTask>
+    <bpmn:receiveTask id="Task_Respuesta" name="Recibir la respuesta del usuario">
+      <bpmn:incoming>SF_9</bpmn:incoming>
+      <bpmn:outgoing>SF_10</bpmn:outgoing>
+    </bpmn:receiveTask>
+    <bpmn:exclusiveGateway id="Gateway_Acepta" name="¿Acepta el usuario la otra franja o instalación?">
+      <bpmn:incoming>SF_10</bpmn:incoming>
+      <bpmn:outgoing>SF_AceptaSi</bpmn:outgoing>
+      <bpmn:outgoing>SF_AceptaNo</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:endEvent id="Event_FinSinReserva" name="Reserva no realizada">
+      <bpmn:incoming>SF_AceptaNo</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="SF_1" sourceRef="StartEvent_Solicitud" targetRef="Task_Consultar" />
+    <bpmn:sequenceFlow id="SF_2" sourceRef="Task_Consultar" targetRef="Gateway_Libre" />
+    <bpmn:sequenceFlow id="SF_Si" name="Sí" sourceRef="Gateway_Libre" targetRef="Gateway_Union" />
+    <bpmn:sequenceFlow id="SF_No" name="No" sourceRef="Gateway_Libre" targetRef="Task_Proponer" />
+    <bpmn:sequenceFlow id="SF_3" sourceRef="Gateway_Union" targetRef="Task_Anotar" />
+    <bpmn:sequenceFlow id="SF_4" sourceRef="Task_Anotar" targetRef="Task_Confirmar" />
+    <bpmn:sequenceFlow id="SF_5" sourceRef="Task_Confirmar" targetRef="Event_Pago" />
+    <bpmn:sequenceFlow id="SF_6" sourceRef="Event_Pago" targetRef="Event_FinReserva" />
+    <bpmn:sequenceFlow id="SF_9" sourceRef="Task_Proponer" targetRef="Task_Respuesta" />
+    <bpmn:sequenceFlow id="SF_10" sourceRef="Task_Respuesta" targetRef="Gateway_Acepta" />
+    <bpmn:sequenceFlow id="SF_AceptaSi" name="Sí" sourceRef="Gateway_Acepta" targetRef="Gateway_Union" />
+    <bpmn:sequenceFlow id="SF_AceptaNo" name="No" sourceRef="Gateway_Acepta" targetRef="Event_FinSinReserva" />
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_ReservaActual">
+    <bpmndi:BPMNPlane id="BPMNPlane_ReservaActual" bpmnElement="Collaboration_ReservaActual">
+      <bpmndi:BPMNShape id="Participant_Usuario_di" bpmnElement="Participant_Usuario" isHorizontal="true">
+        <dc:Bounds x="160" y="40" width="1100" height="60" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Participant_Centro_di" bpmnElement="Participant_Centro" isHorizontal="true">
+        <dc:Bounds x="160" y="180" width="1100" height="360" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="StartEvent_Solicitud_di" bpmnElement="StartEvent_Solicitud">
+        <dc:Bounds x="222" y="302" width="36" height="36" />
+        <bpmndi:BPMNLabel><dc:Bounds x="196" y="345" width="88" height="40" /></bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_Consultar_di" bpmnElement="Task_Consultar">
+        <dc:Bounds x="300" y="280" width="120" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_Libre_di" bpmnElement="Gateway_Libre" isMarkerVisible="true">
+        <dc:Bounds x="470" y="295" width="50" height="50" />
+        <bpmndi:BPMNLabel><dc:Bounds x="425" y="235" width="140" height="40" /></bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_Union_di" bpmnElement="Gateway_Union" isMarkerVisible="true">
+        <dc:Bounds x="580" y="295" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_Anotar_di" bpmnElement="Task_Anotar">
+        <dc:Bounds x="690" y="280" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_Confirmar_di" bpmnElement="Task_Confirmar">
+        <dc:Bounds x="840" y="280" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_Pago_di" bpmnElement="Event_Pago">
+        <dc:Bounds x="1070" y="302" width="36" height="36" />
+        <bpmndi:BPMNLabel><dc:Bounds x="1038" y="345" width="100" height="40" /></bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_FinReserva_di" bpmnElement="Event_FinReserva">
+        <dc:Bounds x="1170" y="302" width="36" height="36" />
+        <bpmndi:BPMNLabel><dc:Bounds x="1145" y="345" width="86" height="27" /></bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_Proponer_di" bpmnElement="Task_Proponer">
+        <dc:Bounds x="620" y="410" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_Respuesta_di" bpmnElement="Task_Respuesta">
+        <dc:Bounds x="765" y="410" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_Acepta_di" bpmnElement="Gateway_Acepta" isMarkerVisible="true">
+        <dc:Bounds x="920" y="425" width="50" height="50" />
+        <bpmndi:BPMNLabel><dc:Bounds x="885" y="480" width="120" height="40" /></bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_FinSinReserva_di" bpmnElement="Event_FinSinReserva">
+        <dc:Bounds x="1070" y="432" width="36" height="36" />
+        <bpmndi:BPMNLabel><dc:Bounds x="1040" y="475" width="96" height="27" /></bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SF_1_di" bpmnElement="SF_1"><di:waypoint x="258" y="320" /><di:waypoint x="300" y="320" /></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SF_2_di" bpmnElement="SF_2"><di:waypoint x="420" y="320" /><di:waypoint x="470" y="320" /></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SF_Si_di" bpmnElement="SF_Si"><di:waypoint x="520" y="320" /><di:waypoint x="580" y="320" />
+        <bpmndi:BPMNLabel><dc:Bounds x="541" y="302" width="20" height="14" /></bpmndi:BPMNLabel></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SF_No_di" bpmnElement="SF_No"><di:waypoint x="495" y="345" /><di:waypoint x="495" y="450" /><di:waypoint x="620" y="450" />
+        <bpmndi:BPMNLabel><dc:Bounds x="503" y="420" width="20" height="14" /></bpmndi:BPMNLabel></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SF_3_di" bpmnElement="SF_3"><di:waypoint x="630" y="320" /><di:waypoint x="690" y="320" /></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SF_4_di" bpmnElement="SF_4"><di:waypoint x="790" y="320" /><di:waypoint x="840" y="320" /></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SF_5_di" bpmnElement="SF_5"><di:waypoint x="940" y="320" /><di:waypoint x="1070" y="320" /></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SF_6_di" bpmnElement="SF_6"><di:waypoint x="1106" y="320" /><di:waypoint x="1170" y="320" /></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SF_9_di" bpmnElement="SF_9"><di:waypoint x="720" y="450" /><di:waypoint x="765" y="450" /></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SF_10_di" bpmnElement="SF_10"><di:waypoint x="865" y="450" /><di:waypoint x="920" y="450" /></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SF_AceptaSi_di" bpmnElement="SF_AceptaSi"><di:waypoint x="945" y="425" /><di:waypoint x="945" y="385" /><di:waypoint x="605" y="385" /><di:waypoint x="605" y="345" />
+        <bpmndi:BPMNLabel><dc:Bounds x="952" y="396" width="20" height="14" /></bpmndi:BPMNLabel></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SF_AceptaNo_di" bpmnElement="SF_AceptaNo"><di:waypoint x="970" y="450" /><di:waypoint x="1070" y="450" />
+        <bpmndi:BPMNLabel><dc:Bounds x="1000" y="432" width="20" height="14" /></bpmndi:BPMNLabel></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="MF_Solicitud_di" bpmnElement="MF_Solicitud"><di:waypoint x="240" y="100" /><di:waypoint x="240" y="302" />
+        <bpmndi:BPMNLabel><dc:Bounds x="248" y="118" width="100" height="27" /></bpmndi:BPMNLabel></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="MF_Propuesta_di" bpmnElement="MF_Propuesta"><di:waypoint x="660" y="410" /><di:waypoint x="660" y="100" />
+        <bpmndi:BPMNLabel><dc:Bounds x="545" y="118" width="108" height="54" /></bpmndi:BPMNLabel></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="MF_Respuesta_di" bpmnElement="MF_Respuesta"><di:waypoint x="815" y="100" /><di:waypoint x="815" y="410" />
+        <bpmndi:BPMNLabel><dc:Bounds x="722" y="118" width="88" height="40" /></bpmndi:BPMNLabel></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="MF_Confirmacion_di" bpmnElement="MF_Confirmacion"><di:waypoint x="890" y="280" /><di:waypoint x="890" y="100" />
+        <bpmndi:BPMNLabel><dc:Bounds x="896" y="118" width="86" height="40" /></bpmndi:BPMNLabel></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="MF_Pago_di" bpmnElement="MF_Pago"><di:waypoint x="1088" y="100" /><di:waypoint x="1088" y="302" />
+        <bpmndi:BPMNLabel><dc:Bounds x="1094" y="118" width="100" height="27" /></bpmndi:BPMNLabel></bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

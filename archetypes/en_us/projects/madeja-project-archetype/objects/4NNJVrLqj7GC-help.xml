@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<object id="4NNJVrLqj7GC-help" classes="traceable-object paragraph comment" acceptedChildren=":Proteus-none" acceptedParents=":Proteus-document section">
+  <properties>
+    <stringProperty name=":Proteus-name"><![CDATA[Guidance]]></stringProperty>
+    <dateProperty name=":Proteus-date">2026-10-20</dateProperty>
+    <stringProperty name="version"><![CDATA[1.0]]></stringProperty>
+    <traceProperty name="authors" category="general" acceptedTargets="stakeholder" traceType=":Proteus-author"/>
+    <traceProperty name="sources" category="general" acceptedTargets="stakeholder" traceType=":Proteus-information-source"/>
+    <markdownProperty name="text" category="detail"><![CDATA[**Mandatory** section. It must briefly describe the situation that gives rise to the need for the new system and any other consideration that places the reader in the context needed to understand the rest of the document.
+
+If this information already appears in previous project documents (technical specifications of the tender, selected offer, feasibility study), it can be reused by citing them as a source.
+
+Images can be included to illustrate the context (photographs of the facilities, organization charts, maps), always with a description and, if they are not your own, with the attribution of their authorship and license.
+
+Recommended archetypes: **Paragraph** and **Figure**.]]></markdownProperty>
+    <traceProperty name="dependencies" category="dependencies" acceptedTargets="traceable-object" traceType=":Proteus-dependency"/>
+    <markdownProperty name="comments" category="comments"><![CDATA[]]></markdownProperty>
+  </properties>
+  <children/>
+</object>

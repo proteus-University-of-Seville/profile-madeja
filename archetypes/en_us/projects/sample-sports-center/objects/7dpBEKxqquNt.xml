@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<object id="7dpBEKxqquNt" classes="section appendix" acceptedChildren=":Proteus-any" acceptedParents=":Proteus-document">
+  <properties>
+    <stringProperty name=":Proteus-name" category="general"><![CDATA[Glossary of acronyms and abbreviations]]></stringProperty>
+    <markdownProperty name="comments" category="general"><![CDATA[]]></markdownProperty>
+  </properties>
+  <children>
+    <child id="4tbcCMw2amZZ"/>
+    <child id="pkMjqDnp8mbp"/>
+    <child id="MUPXmNpL8MXQ"/>
+    <child id="HJSTGBgAMEWw"/>
+    <child id="rA7XzuywYBbg"/>
+    <child id="ApHw7vSsjeWL"/>
+  </children>
+</object>
