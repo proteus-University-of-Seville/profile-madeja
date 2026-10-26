@@ -1,0 +1,17 @@
+@startuml
+skinparam defaultFontName Arial
+title Navegación del portal de abonados
+state "Acceso con Cl@ve" as acceso
+state "Inicio" as inicio
+state "Disponibilidad de instalaciones" as disponibilidad
+state "Confirmación y pago" as confirmacion
+state "Mis reservas" as misreservas
+[*] --> acceso
+acceso --> inicio
+inicio --> disponibilidad : Reservar
+inicio --> misreservas : Mis reservas
+disponibilidad --> confirmacion : elegir franja
+confirmacion --> misreservas : pago correcto
+misreservas --> inicio : Volver
+misreservas --> misreservas : Anular reserva
+@enduml

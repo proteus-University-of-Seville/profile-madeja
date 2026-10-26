@@ -1,0 +1,43 @@
+@startuml
+skinparam defaultFontName Arial
+hide empty methods
+class Abonado {
+  dni : String
+  nombre : String
+  email : String
+  fechaAlta : Date
+}
+abstract class Instalación {
+  nombre : String
+  precioHora : Decimal
+}
+class Pista {
+  deporte : String
+  cubierta : Boolean
+}
+class Sala {
+  aforo : Integer
+}
+class Reserva {
+  fecha : Date
+  horaInicio : Time
+  duración : Integer
+  importe : Decimal
+  estado : EstadoReserva
+}
+enum EstadoReserva {
+  PENDIENTE_PAGO
+  CONFIRMADA
+  ANULADA
+  DISFRUTADA
+}
+Instalación <|-- Pista
+Instalación <|-- Sala
+Abonado "1 titular" -- "0..* reservas" Reserva
+Reserva "0..* reservas" -- "1 instalación" Instalación
+Reserva ..> EstadoReserva
+note bottom of Reserva
+  Un abonado no puede tener más de
+  5 reservas en la misma semana [CON-001]
+end note
+@enduml

@@ -1,0 +1,30 @@
+@startuml
+skinparam defaultFontName Arial
+package "Capa de presentación" {
+  [Portal web de abonados] as portal
+  [Aplicación de recepción] as recepcion
+}
+package "Capa de lógica de negocio" {
+  [Servicio de reservas] as reservas
+  [Servicio de abonados] as abonados
+  [Servicio de informes] as informes
+}
+package "Capa de persistencia" {
+  [Repositorio de datos] as repo
+  database "PostgreSQL" as bd
+}
+cloud "Servicios externos" {
+  [Cl@ve] as clave
+  [Plataforma de pago municipal] as pago
+}
+portal --> reservas
+portal --> abonados
+recepcion --> reservas
+recepcion --> informes
+reservas --> repo
+abonados --> repo
+informes --> repo
+repo --> bd
+abonados ..> clave
+reservas ..> pago
+@enduml

@@ -1,0 +1,20 @@
+@startuml
+skinparam defaultFontName Arial
+component "Servicio de reservas" as reservas
+interface "IReservas" as ireservas
+reservas -up- ireservas
+note right of ireservas
+  consultarDisponibilidad(instalación, fecha)
+  crearReserva(abonado, instalación, fecha, hora, duración)
+  anularReserva(reserva)
+end note
+component "Plataforma de pago municipal" as pago
+interface "IPago" as ipago
+pago -up- ipago
+reservas ..> ipago : usa
+component "Cl@ve" as clave
+interface "IAutenticacion" as iauth
+clave -up- iauth
+component "Servicio de abonados" as abonados
+abonados ..> iauth : usa
+@enduml

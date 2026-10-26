@@ -1,0 +1,17 @@
+@startuml
+skinparam defaultFontName Arial
+left to right direction
+actor "Abonado\n[ACT-001]" as abonado
+actor "Recepcionista\n[ACT-002]" as recepcionista
+actor "Plataforma de pago\n[ACT-003]" as pago
+rectangle "Sistema de reservas del Centro Deportivo" {
+  usecase "Reservar instalación\n[CU-001]" as cu1
+  usecase "Anular reserva\n[CU-002]" as cu2
+  usecase "Pagar reserva\n[CU-003]" as cu3
+}
+abonado --> cu1
+abonado --> cu2
+recepcionista --> cu2
+cu1 ..> cu3 : <<include>>
+cu3 --> pago
+@enduml

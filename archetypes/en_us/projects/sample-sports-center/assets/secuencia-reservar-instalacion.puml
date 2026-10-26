@@ -1,0 +1,23 @@
+@startuml
+skinparam defaultFontName Arial
+title Reservar instalación [CU-001]
+actor Abonado
+participant "Portal web" as portal
+participant "Servicio de reservas" as reservas
+participant "Plataforma de pago" as pago
+database "Repositorio" as repo
+Abonado -> portal : elige instalación y franja
+portal -> reservas : consultarDisponibilidad(instalación, fecha)
+reservas -> repo : buscar reservas de la fecha
+repo --> reservas : reservas
+reservas --> portal : franjas libres
+Abonado -> portal : confirma la franja
+portal -> reservas : crearReserva(abonado, instalación, fecha, hora, duración)
+reservas -> reservas : comprobar reglas REGN-001
+reservas -> repo : guardar reserva (PENDIENTE_PAGO)
+reservas -> pago : cobrar(importe, referencia)
+pago --> reservas : pago correcto
+reservas -> repo : actualizar estado (CONFIRMADA)
+reservas --> portal : reserva confirmada
+portal --> Abonado : justificante de la reserva
+@enduml

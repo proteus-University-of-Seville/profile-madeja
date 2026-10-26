@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <object id="e9BCefnmZkuV" classes="role" acceptedChildren=":Proteus-none" acceptedParents="association">
   <properties>
-    <stringProperty name=":Proteus-name" category="general"><![CDATA[instalacion]]></stringProperty>
+    <stringProperty name=":Proteus-name" category="general"><![CDATA[instalación]]></stringProperty>
     <traceProperty name="type" category="general" acceptedTargets="entity-class" traceType=":Proteus-dependency" maxTargetsNumber="1">
       <trace target="LStfcYxhAeSq" traceType=":Proteus-dependency"/>
     </traceProperty>
