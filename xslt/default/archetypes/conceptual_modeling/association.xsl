@@ -29,24 +29,36 @@
   -->
   <!-- ================================================================== -->
 
-  <!--
-    Uncomment and modify this template as needed. The default behavior for
-    all Proteus objects is generating a table.
-  -->
-
   <!-- ================================================================== -->
   <!-- association template                                              -->
   <!-- ================================================================== -->
 
-  <!--
+  <!-- An association may have both attributes and roles as children:    -->
+  <!-- they are shown in two separate rows, "Attributes" (only if it has -->
+  <!-- any) and "Roles", instead of a single "Contains" row.             -->
   <xsl:template
     match="object[contains(concat(' ', normalize-space(@classes), ' '),' association ')]"
     name="association_template"
     priority="1"
   >
-    <xsl:call-template name="generate_table"/>
+    <xsl:variable name="children_rows">
+      <xsl:call-template name="renderChildren">
+        <xsl:with-param name="children" select="children/object[contains(concat(' ', normalize-space(@classes), ' '),' attribute ')]"/>
+        <xsl:with-param name="style" select="'list'"/>
+        <xsl:with-param name="label_key" select="'xslt.attributes'"/>
+      </xsl:call-template>
+      <xsl:call-template name="renderChildren">
+        <xsl:with-param name="children" select="children/object[contains(concat(' ', normalize-space(@classes), ' '),' role ')]"/>
+        <xsl:with-param name="style" select="'list'"/>
+        <xsl:with-param name="label_key" select="'xslt.roles'"/>
+      </xsl:call-template>
+    </xsl:variable>
+
+    <xsl:call-template name="generate_table">
+      <xsl:with-param name="extra_rows" select="$children_rows"/>
+      <xsl:with-param name="show_children" select="false()"/>
+    </xsl:call-template>
 
   </xsl:template>
-  -->
 
 </xsl:stylesheet>

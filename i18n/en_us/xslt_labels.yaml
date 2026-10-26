@@ -35,10 +35,14 @@
 # -----------------------------------------------------------------------
 
 xslt.action: "Action"
+xslt.attributes: "Attributes"
 xslt.children: "Contains"
 xslt.empty_paragraph: "Empty paragraph"
+xslt.entity_abstract: " (abstract)"
 xslt.enum_values: "Enumeration values"
 xslt.ordinary_sequence: "Ordinary sequence"
+xslt.parameters: "Parameters"
+xslt.roles: "Roles"
 xslt.specific_data: "Specific data"
 xslt.step: "Step"
 xslt.sub_objectives: "Sub-objectives"

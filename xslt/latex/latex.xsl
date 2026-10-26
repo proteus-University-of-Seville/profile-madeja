@@ -61,7 +61,10 @@
   <xsl:include href="archetypes/requirements/use_case.xsl" />
 
   <!-- 03_conceptual_modeling -->
+  <xsl:include href="archetypes/conceptual_modeling/association.xsl" />
+  <xsl:include href="archetypes/conceptual_modeling/entity_class.xsl" />
   <xsl:include href="archetypes/conceptual_modeling/enumeration.xsl" />
+  <xsl:include href="archetypes/conceptual_modeling/system_operation.xsl" />
 
   <!-- 04_req_management -->
   <xsl:include href="archetypes/req_management/traceability_matrix.xsl" />

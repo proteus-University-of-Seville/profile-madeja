@@ -29,24 +29,21 @@
   -->
   <!-- ================================================================== -->
 
-  <!--
-    Uncomment and modify this template as needed. The default behavior for
-    all Proteus objects is generating a table.
-  -->
-
   <!-- ================================================================== -->
-  <!-- system-operation template                                              -->
+  <!-- system-operation template                                          -->
   <!-- ================================================================== -->
 
-  <!--
+  <!-- The children of a system operation are always parameters, so the   -->
+  <!-- row that lists them is labelled "Parameters" instead of "Contains". -->
   <xsl:template
     match="object[contains(concat(' ', normalize-space(@classes), ' '),' system-operation ')]"
     name="system_operation_template"
     priority="1"
   >
-    <xsl:call-template name="generate_table"/>
+    <xsl:call-template name="generate_table">
+      <xsl:with-param name="children_label_key" select="'xslt.parameters'"/>
+    </xsl:call-template>
 
   </xsl:template>
-  -->
 
 </xsl:stylesheet>

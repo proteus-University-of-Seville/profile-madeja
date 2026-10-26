@@ -34,6 +34,8 @@
     <xsl:param name="name" select="properties/*[@name=':Proteus-name']"/>
     <xsl:param name="icon" select="concat($class,'.png')"/>
     <xsl:param name="postfix"/>
+    <!-- The name is shown in italics, e.g. abstract entity classes -->
+    <xsl:param name="name_italic" select="false()"/>
     <xsl:param name="span" select="1"/>
     <xsl:param name="excluded_properties" select="',:Proteus-name,:Proteus-code,:Proteus-date,version,authors,sources,'"/>
     <xsl:param name="included_properties"/>
@@ -147,7 +149,14 @@
               <xsl:if test="$code">
                 <span class="object_code"><xsl:value-of select="$code"/></span>
               </xsl:if>
-              <xsl:value-of select="$name"/>
+              <xsl:choose>
+                <xsl:when test="$name_italic">
+                  <em><xsl:value-of select="$name"/></em>
+                </xsl:when>
+                <xsl:otherwise>
+                  <xsl:value-of select="$name"/>
+                </xsl:otherwise>
+              </xsl:choose>
               <xsl:if test="$postfix">
                 <xsl:text></xsl:text>
                 <xsl:value-of select="$postfix"/>

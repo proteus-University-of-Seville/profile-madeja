@@ -38,6 +38,8 @@
     <xsl:param name="class" select="str:tokenize(@classes, ' ')[last()]"/>
     <xsl:param name="name" select="properties/*[@name=':Proteus-name']"/>
     <xsl:param name="postfix"/>
+    <!-- The name is shown in italics, e.g. abstract entity classes -->
+    <xsl:param name="name_italic" select="false()"/>
     <xsl:param name="excluded_properties" select="',:Proteus-name,:Proteus-code,:Proteus-date,version,authors,sources,'"/>
     <xsl:param name="included_properties"/>
     <!-- Wide properties (see generate_property_row) keep their name and their     -->
@@ -109,7 +111,9 @@
     <xsl:text>}{</xsl:text>
     <xsl:call-template name="tex"><xsl:with-param name="text" select="$code"/></xsl:call-template>
     <xsl:text>}{</xsl:text>
+    <xsl:if test="$name_italic">\textit{</xsl:if>
     <xsl:call-template name="tex"><xsl:with-param name="text" select="$name"/></xsl:call-template>
+    <xsl:if test="$name_italic">}</xsl:if>
     <xsl:call-template name="tex"><xsl:with-param name="text" select="$postfix"/></xsl:call-template>
     <xsl:if test="$image">
       <xsl:text>\ProteusObjectImage{assets/</xsl:text>
