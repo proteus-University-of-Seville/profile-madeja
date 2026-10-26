@@ -2,7 +2,7 @@
 <object id="75T8fcg7FX2z" classes="model-element system-operation" acceptedChildren="parameter" acceptedParents=":Proteus-any">
   <properties>
     <codeProperty name=":Proteus-code" category="general" inmutable="true">
-      <prefix><![CDATA[SYSOP-]]></prefix>
+      <prefix><![CDATA[OPSIS-]]></prefix>
       <number>001</number>
       <suffix><![CDATA[]]></suffix>
     </codeProperty>
@@ -17,7 +17,7 @@
     </traceProperty>
     <markdownProperty name="result-type" category="detail" tooltip="result-type"><![CDATA[Reserva]]></markdownProperty>
     <markdownProperty name="description" category="detail"><![CDATA[Esta operación del sistema crea una reserva de una instalación para un abonado y cobra su importe.]]></markdownProperty>
-    <markdownProperty name="precondition" category="pre-post"><![CDATA[La franja horaria está libre y la reserva cumple las reglas de reserva (CON-001).]]></markdownProperty>
+    <markdownProperty name="precondition" category="pre-post"><![CDATA[La franja horaria está libre y la reserva cumple las reglas de reserva (REST-001).]]></markdownProperty>
     <markdownProperty name="postcondition" category="pre-post"><![CDATA[Devuelve la reserva creada, confirmada si el pago ha sido correcto y anulada si no.]]></markdownProperty>
     <traceProperty name="dependencies" category="dependencies" acceptedTargets="traceable-object business-requirement software-requirement model-element" traceType=":Proteus-dependency">
       <trace target="g33rm3xNZ59d" traceType=":Proteus-dependency"/>

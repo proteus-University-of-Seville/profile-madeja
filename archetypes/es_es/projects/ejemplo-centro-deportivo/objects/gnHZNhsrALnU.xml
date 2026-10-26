@@ -2,7 +2,7 @@
 <object id="gnHZNhsrALnU" classes="model-element constraint" acceptedChildren=":Proteus-none" acceptedParents=":Proteus-any">
   <properties>
     <codeProperty name=":Proteus-code" category="general" inmutable="true">
-      <prefix><![CDATA[CON-]]></prefix>
+      <prefix><![CDATA[REST-]]></prefix>
       <number>001</number>
       <suffix><![CDATA[]]></suffix>
     </codeProperty>

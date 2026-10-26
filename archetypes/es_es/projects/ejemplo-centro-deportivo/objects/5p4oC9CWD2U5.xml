@@ -2,7 +2,7 @@
 <object id="5p4oC9CWD2U5" classes="model-element association" acceptedChildren="role attribute" acceptedParents=":Proteus-any">
   <properties>
     <codeProperty name=":Proteus-code" category="general" inmutable="true">
-      <prefix><![CDATA[ASSO-]]></prefix>
+      <prefix><![CDATA[ASO-]]></prefix>
       <number>002</number>
       <suffix><![CDATA[]]></suffix>
     </codeProperty>

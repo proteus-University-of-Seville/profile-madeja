@@ -2,7 +2,7 @@
 <object id="DMUj7ff2NX62" classes="model-element system-operation" acceptedChildren="parameter" acceptedParents=":Proteus-any">
   <properties>
     <codeProperty name=":Proteus-code" category="general" inmutable="true">
-      <prefix><![CDATA[SYSOP-]]></prefix>
+      <prefix><![CDATA[OPSIS-]]></prefix>
       <number>002</number>
       <suffix><![CDATA[]]></suffix>
     </codeProperty>

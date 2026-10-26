@@ -5,7 +5,7 @@
   acceptedChildren=":Proteus-none"
 >
   <properties>
-    <codeProperty name=":Proteus-code" category="general" inmutable="true"><prefix><![CDATA[CON-]]></prefix><number>001</number><suffix><![CDATA[]]></suffix></codeProperty>
+    <codeProperty name=":Proteus-code" category="general" inmutable="true"><prefix><![CDATA[REST-]]></prefix><number>001</number><suffix><![CDATA[]]></suffix></codeProperty>
     <stringProperty name=":Proteus-name" category="general"><![CDATA[Restricción]]></stringProperty>
     <dateProperty name=":Proteus-date" category="general">2024-11-01</dateProperty>
     <stringProperty name="version" category="general"><![CDATA[1.0]]></stringProperty>
