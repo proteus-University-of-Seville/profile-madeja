@@ -8,7 +8,7 @@
     <markdownProperty name="comments" category="comments"><![CDATA[]]></markdownProperty>
   </properties>
   <documents>
-    <document id="ers"/>
-    <document id="das"/>
+    <document id="srs"/>
+    <document id="sad"/>
   </documents>
 </project>

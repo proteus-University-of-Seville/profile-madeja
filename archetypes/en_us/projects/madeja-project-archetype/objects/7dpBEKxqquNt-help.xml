@@ -6,7 +6,7 @@
     <stringProperty name="version"><![CDATA[1.0]]></stringProperty>
     <traceProperty name="authors" category="general" acceptedTargets="stakeholder" traceType=":Proteus-author"/>
     <traceProperty name="sources" category="general" acceptedTargets="stakeholder" traceType=":Proteus-information-source"/>
-    <markdownProperty name="text" category="detail"><![CDATA[**Optional** appendix. Alphabetically ordered list of the acronyms and abbreviations that appear in the document. Those already in the ERS glossary are shown with **symbolic links**; those that only appear in the DAS are added as **Glossary items**.]]></markdownProperty>
+    <markdownProperty name="text" category="detail"><![CDATA[**Optional** appendix. Alphabetically ordered list of the acronyms and abbreviations that appear in the document. Those already in the SRS glossary are shown with **symbolic links**; those that only appear in the SAD are added as **Glossary items**.]]></markdownProperty>
     <traceProperty name="dependencies" category="dependencies" acceptedTargets="traceable-object" traceType=":Proteus-dependency"/>
     <markdownProperty name="comments" category="comments"><![CDATA[]]></markdownProperty>
   </properties>

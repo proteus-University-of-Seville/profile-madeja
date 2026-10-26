@@ -6,7 +6,7 @@
     <stringProperty name="version"><![CDATA[1.0]]></stringProperty>
     <traceProperty name="authors" category="general" acceptedTargets="stakeholder" traceType=":Proteus-author"/>
     <traceProperty name="sources" category="general" acceptedTargets="stakeholder" traceType=":Proteus-information-source"/>
-    <markdownProperty name="text" category="detail"><![CDATA[A **Figure** with the UML sequence diagram or the workflow diagram of each use case or behavioral requirement of the ERS (usually one for each). Workflow diagrams (for example, UML activity diagrams) are recommended for those closer to administrative processes, and sequence diagrams for the rest. Each figure must be traced to the use case or requirement it models.]]></markdownProperty>
+    <markdownProperty name="text" category="detail"><![CDATA[A **Figure** with the UML sequence diagram or the workflow diagram of each use case or behavioral requirement of the SRS (usually one for each). Workflow diagrams (for example, UML activity diagrams) are recommended for those closer to administrative processes, and sequence diagrams for the rest. Each figure must be traced to the use case or requirement it models.]]></markdownProperty>
     <traceProperty name="dependencies" category="dependencies" acceptedTargets="traceable-object" traceType=":Proteus-dependency"/>
     <markdownProperty name="comments" category="comments"><![CDATA[]]></markdownProperty>
   </properties>

@@ -8,7 +8,7 @@
     <traceProperty name="sources" category="general" acceptedTargets="stakeholder" traceType=":Proteus-information-source"/>
     <markdownProperty name="text" category="detail"><![CDATA[**Mandatory** section. It must briefly describe the contents of the document and any other consideration that places the reader in the context needed to understand it.
 
-The DAS is a technical document, aimed at developers, that complements the ERS with the models of the system (logical architecture, class model, use case model and user and services interfaces). Its elements must be traced to the ERS requirements they come from.
+The SAD is a technical document, aimed at developers, that complements the SRS with the models of the system (logical architecture, class model, use case model and user and services interfaces). Its elements must be traced to the SRS requirements they come from.
 
 Recommended archetypes: **Paragraph**.]]></markdownProperty>
     <traceProperty name="dependencies" category="dependencies" acceptedTargets="traceable-object" traceType=":Proteus-dependency"/>

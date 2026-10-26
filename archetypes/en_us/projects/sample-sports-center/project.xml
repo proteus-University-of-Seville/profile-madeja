@@ -4,13 +4,13 @@
     <stringProperty name=":Proteus-name" category="general"><![CDATA[Municipal Sports Center (MADEJA example)]]></stringProperty>
     <stringProperty name="version" category="general"><![CDATA[1.0]]></stringProperty>
     <dateProperty name=":Proteus-date" category="general">2026-10-09</dateProperty>
-    <markdownProperty name="description" category="detail"><![CDATA[Sample project for the Requirements Engineering course. It contains a System Requirements Specification (ERS) and a System Analysis Document (DAS) according to the MADEJA methodology, for a booking system for the facilities of a municipal sports center.
+    <markdownProperty name="description" category="detail"><![CDATA[Sample project for the Requirements Engineering course. It contains a System Requirements Specification (SRS) and a System Analysis Document (SAD) according to the MADEJA methodology, for a booking system for the facilities of a municipal sports center.
 
-Each section begins with a **comment** that explains what it must contain according to MADEJA and which PROTEUS archetypes should be used, followed by examples of those archetypes. The introduction sections of the DAS show the objects of the ERS by means of **symbolic links**, so as not to repeat contents.]]></markdownProperty>
+Each section begins with a **comment** that explains what it must contain according to MADEJA and which PROTEUS archetypes should be used, followed by examples of those archetypes. The introduction sections of the SAD show the objects of the SRS by means of **symbolic links**, so as not to repeat contents.]]></markdownProperty>
     <markdownProperty name="comments" category="comments"><![CDATA[]]></markdownProperty>
   </properties>
   <documents>
-    <document id="ers"/>
-    <document id="das"/>
+    <document id="srs"/>
+    <document id="sad"/>
   </documents>
 </project>

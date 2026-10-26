@@ -21,12 +21,12 @@ PROTEUS loads the profile at start-up, so restart it in both cases. Then create 
 one of the project archetypes (in English or Spanish, depending on the language of PROTEUS):
 
 - **MADEJA RE** / **MADEJA IR** (`madeja-project-archetype` / `arquetipo-proyecto-madeja`): a
-  System Requirements Specification (ERS) and a System Analysis Document (DAS) with the
+  System Requirements Specification (SRS) and a System Analysis Document (SAD) with the
   sections of the MADEJA templates, each one with a guidance comment that explains its
   content and the archetypes to use in it.
 - **Municipal Sports Center (MADEJA example)** / **Centro Deportivo Municipal (ejemplo
-  MADEJA)** (`sample-sports-center` / `ejemplo-centro-deportivo`): a complete sample ERS and
-  DAS of a booking system for the facilities of a municipal sports center, with the same
+  MADEJA)** (`sample-sports-center` / `ejemplo-centro-deportivo`): a complete sample SRS and
+  SAD of a booking system for the facilities of a municipal sports center, with the same
   guidance comments followed by examples of the archetypes (organizations, people and
   figures are fictitious). The diagrams of the English example are in Spanish.
 

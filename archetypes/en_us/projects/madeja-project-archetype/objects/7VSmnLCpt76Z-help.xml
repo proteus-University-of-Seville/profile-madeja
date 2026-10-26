@@ -6,7 +6,7 @@
     <stringProperty name="version"><![CDATA[1.0]]></stringProperty>
     <traceProperty name="authors" category="general" acceptedTargets="stakeholder" traceType=":Proteus-author"/>
     <traceProperty name="sources" category="general" acceptedTargets="stakeholder" traceType=":Proteus-information-source"/>
-    <markdownProperty name="text" category="detail"><![CDATA[**Mandatory** section. It contains the dynamic or functional model of the system (use case model), in which the use cases of the ERS are modeled.]]></markdownProperty>
+    <markdownProperty name="text" category="detail"><![CDATA[**Mandatory** section. It contains the dynamic or functional model of the system (use case model), in which the use cases of the SRS are modeled.]]></markdownProperty>
     <traceProperty name="dependencies" category="dependencies" acceptedTargets="traceable-object" traceType=":Proteus-dependency"/>
     <markdownProperty name="comments" category="comments"><![CDATA[]]></markdownProperty>
   </properties>
