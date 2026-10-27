@@ -33,8 +33,8 @@ enum EstadoReserva {
 }
 Instalación <|-- Pista
 Instalación <|-- Sala
-Abonado "1 titular" -- "0..* reservas" Reserva
-Reserva "0..* reservas" -- "1 instalación" Instalación
+Abonado "1 titular" -- "0..* reservas" Reserva : es_titular_de >
+Reserva "0..* reservas" -- "1 instalación" Instalación : se_realizan_en >
 Reserva ..> EstadoReserva
 note bottom of Reserva
   Un abonado no puede tener más de
