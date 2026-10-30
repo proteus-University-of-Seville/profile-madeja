@@ -28,7 +28,8 @@ one of the project archetypes (in English or Spanish, depending on the language 
   MADEJA)** (`sample-sports-center` / `ejemplo-centro-deportivo`): a complete sample SRS and
   SAD of a booking system for the facilities of a municipal sports center, with the same
   guidance comments followed by examples of the archetypes (organizations, people and
-  figures are fictitious). The diagrams of the English example are in Spanish.
+  figures are fictitious). The PlantUML sources of the diagrams (`.puml`) are in the
+  `assets` folder of each example, next to their images.
 
 The documents of both project archetypes can also be added to an existing project as document
 archetypes.

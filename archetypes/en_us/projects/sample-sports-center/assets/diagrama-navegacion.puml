@@ -1,17 +1,17 @@
 @startuml
 skinparam defaultFontName Arial
-title Navegación del portal de abonados
-state "Acceso con Cl@ve" as acceso
-state "Inicio" as inicio
-state "Disponibilidad de instalaciones" as disponibilidad
-state "Confirmación y pago" as confirmacion
-state "Mis reservas" as misreservas
-[*] --> acceso
-acceso --> inicio
-inicio --> disponibilidad : Reservar
-inicio --> misreservas : Mis reservas
-disponibilidad --> confirmacion : elegir franja
-confirmacion --> misreservas : pago correcto
-misreservas --> inicio : Volver
-misreservas --> misreservas : Anular reserva
+title Navigation of the members portal
+state "Access with Cl@ve" as access
+state "Home" as home
+state "Facility availability" as availability
+state "Confirmation and payment" as confirmation
+state "My bookings" as mybookings
+[*] --> access
+access --> home
+home --> availability : Book
+home --> mybookings : My bookings
+availability --> confirmation : choose time slot
+confirmation --> mybookings : payment accepted
+mybookings --> home : Back
+mybookings --> mybookings : Cancel booking
 @enduml

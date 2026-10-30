@@ -1,43 +1,43 @@
 @startuml
 skinparam defaultFontName Arial
 hide empty methods
-class Abonado {
-  dni : String
-  nombre : String
+class Member {
+  idNumber : String
+  name : String
   email : String
-  fechaAlta : Date
+  registrationDate : Date
 }
-abstract class Instalación {
-  nombre : String
-  precioHora : Decimal
+abstract class Facility {
+  name : String
+  hourlyPrice : Decimal
 }
-class Pista {
-  deporte : String
-  cubierta : Boolean
+class Court {
+  sport : String
+  covered : Boolean
 }
-class Sala {
-  aforo : Integer
+class Room {
+  capacity : Integer
 }
-class Reserva {
-  fecha : Date
-  horaInicio : Time
-  duración : Integer
-  importe : Decimal
-  estado : EstadoReserva
+class Booking {
+  date : Date
+  startTime : Time
+  duration : Integer
+  amount : Decimal
+  status : BookingStatus
 }
-enum EstadoReserva {
-  PENDIENTE_PAGO
-  CONFIRMADA
-  ANULADA
-  DISFRUTADA
+enum BookingStatus {
+  PENDING_PAYMENT
+  CONFIRMED
+  CANCELLED
+  USED
 }
-Instalación <|-- Pista
-Instalación <|-- Sala
-Abonado "1 titular" -- "0..* reservas" Reserva : es_titular_de >
-Reserva "0..* reservas" -- "1 instalación" Instalación : se_realizan_en >
-Reserva ..> EstadoReserva
-note bottom of Reserva
-  Un abonado no puede tener más de
-  5 reservas en la misma semana [CON-001]
+Facility <|-- Court
+Facility <|-- Room
+Member "1 holder" -- "0..* bookings" Booking : holds >
+Booking "0..* bookings" -- "1 facility" Facility : take_place_in >
+Booking ..> BookingStatus
+note bottom of Booking
+  A member cannot have more than
+  5 bookings in the same week [CON-001]
 end note
 @enduml

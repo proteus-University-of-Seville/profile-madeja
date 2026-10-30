@@ -1,11 +1,11 @@
 @startuml
 skinparam defaultFontName Arial
-title Ciclo de vida de una reserva
-[*] --> PendientePago : crearReserva
-PendientePago --> Confirmada : pago correcto
-PendientePago --> Anulada : pago rechazado o\nplazo de pago vencido
-Confirmada --> Anulada : anularReserva
-Confirmada --> Disfrutada : fin de la franja horaria
-Anulada --> [*]
-Disfrutada --> [*]
+title Life cycle of a booking
+[*] --> PendingPayment : createBooking
+PendingPayment --> Confirmed : payment accepted
+PendingPayment --> Cancelled : payment rejected or\npayment deadline expired
+Confirmed --> Cancelled : cancelBooking
+Confirmed --> Used : end of the time slot
+Cancelled --> [*]
+Used --> [*]
 @enduml

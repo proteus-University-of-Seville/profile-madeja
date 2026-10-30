@@ -1,17 +1,17 @@
 @startuml
 skinparam defaultFontName Arial
 left to right direction
-actor "Abonado\n[ACT-001]" as abonado
-actor "Recepcionista\n[ACT-002]" as recepcionista
-actor "Plataforma de pago\n[ACT-003]" as pago
-rectangle "Sistema de reservas del Centro Deportivo" {
-  usecase "Reservar instalación\n[CU-001]" as cu1
-  usecase "Anular reserva\n[CU-002]" as cu2
-  usecase "Pagar reserva\n[CU-003]" as cu3
+actor "Member\n[ACT-001]" as member
+actor "Receptionist\n[ACT-002]" as receptionist
+actor "Payment platform\n[ACT-003]" as payment
+rectangle "Sports Center booking system" {
+  usecase "Book facility\n[UC-001]" as uc1
+  usecase "Cancel booking\n[UC-002]" as uc2
+  usecase "Pay booking\n[UC-003]" as uc3
 }
-abonado --> cu1
-abonado --> cu2
-recepcionista --> cu2
-cu1 ..> cu3 : <<include>>
-cu3 --> pago
+member --> uc1
+member --> uc2
+receptionist --> uc2
+uc1 ..> uc3 : <<include>>
+uc3 --> payment
 @enduml

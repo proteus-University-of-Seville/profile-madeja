@@ -1,23 +1,23 @@
 @startuml
 skinparam defaultFontName Arial
-title Reservar instalación [CU-001]
-actor Abonado
-participant "Portal web" as portal
-participant "Servicio de reservas" as reservas
-participant "Plataforma de pago" as pago
-database "Repositorio" as repo
-Abonado -> portal : elige instalación y franja
-portal -> reservas : consultarDisponibilidad(instalación, fecha)
-reservas -> repo : buscar reservas de la fecha
-repo --> reservas : reservas
-reservas --> portal : franjas libres
-Abonado -> portal : confirma la franja
-portal -> reservas : crearReserva(abonado, instalación, fecha, hora, duración)
-reservas -> reservas : comprobar reglas REGN-001
-reservas -> repo : guardar reserva (PENDIENTE_PAGO)
-reservas -> pago : cobrar(importe, referencia)
-pago --> reservas : pago correcto
-reservas -> repo : actualizar estado (CONFIRMADA)
-reservas --> portal : reserva confirmada
-portal --> Abonado : justificante de la reserva
+title Book facility [UC-001]
+actor Member
+participant "Web portal" as portal
+participant "Booking service" as bookings
+participant "Payment platform" as payment
+database "Repository" as repo
+Member -> portal : chooses facility and time slot
+portal -> bookings : checkAvailability(facility, date)
+bookings -> repo : find the bookings of the date
+repo --> bookings : bookings
+bookings --> portal : free time slots
+Member -> portal : confirms the time slot
+portal -> bookings : createBooking(member, facility, date, time, duration)
+bookings -> bookings : check rule BRU-001
+bookings -> repo : save booking (PENDING_PAYMENT)
+bookings -> payment : charge(amount, reference)
+payment --> bookings : payment accepted
+bookings -> repo : update status (CONFIRMED)
+bookings --> portal : booking confirmed
+portal --> Member : booking receipt
 @enduml

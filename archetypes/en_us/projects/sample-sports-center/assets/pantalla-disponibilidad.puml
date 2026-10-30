@@ -1,17 +1,17 @@
 @startsalt
 {+
-  <b>Centro Deportivo Municipal - Reservar instalación
+  <b>Municipal Sports Center - Book facility
   ==
-  { Instalación: | ^Pista de pádel 1^ | Fecha: | "10/10/2026" | [Buscar] }
+  { Facility: | ^Padel court 1^ | Date: | "10/10/2026" | [Search] }
   ==
   {#
-    <b>Franja | <b>Estado | <b>Acción
-    09:00 - 10:00 | Libre | [Reservar]
-    10:00 - 11:00 | Ocupada | .
-    11:00 - 12:00 | Libre | [Reservar]
-    12:00 - 13:00 | Libre | [Reservar]
+    <b>Time slot | <b>Status | <b>Action
+    09:00 - 10:00 | Free | [Book]
+    10:00 - 11:00 | Booked | .
+    11:00 - 12:00 | Free | [Book]
+    12:00 - 13:00 | Free | [Book]
   }
   ==
-  { [Mis reservas] | [Salir] }
+  { [My bookings] | [Exit] }
 }
 @endsalt
