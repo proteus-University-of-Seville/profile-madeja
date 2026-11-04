@@ -26,6 +26,7 @@
 
 "xslt.trace_type.:proteus-affected": "Elemento afectado"
 "xslt.trace_type.:proteus-author": "Autor"
+"xslt.trace_type.:proteus-constrains": "Elemento restringido"
 "xslt.trace_type.:proteus-dependency": "Dependencia"
 "xslt.trace_type.:proteus-information-source": "Fuente de información"
 "xslt.trace_type.:proteus-works-for": "Trabaja para"

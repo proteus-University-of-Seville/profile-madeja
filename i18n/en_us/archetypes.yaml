@@ -17,6 +17,13 @@ archetype.category.conceptual_modeling: "Conceptual Modeling"
 archetype.category.req_management: "Requirements Management"
 
 # -----------------------------------------------------------------------
+# Trace types of the profile (shown in the user interface, e.g. in the trace
+# type filter of the traceability matrices)
+# -----------------------------------------------------------------------
+
+":proteus-constrains": "Constrained element"
+
+# -----------------------------------------------------------------------
 # Archetype classes
 # -----------------------------------------------------------------------
 

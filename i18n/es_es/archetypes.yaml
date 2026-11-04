@@ -17,6 +17,13 @@ archetype.category.conceptual_modeling: "Modelado conceptual"
 archetype.category.req_management: "Gestión de requisitos"
 
 # -----------------------------------------------------------------------
+# Tipos de traza propios del perfil (se muestran en la interfaz, p. ej. en el
+# filtro de tipos de traza de las matrices de trazabilidad)
+# -----------------------------------------------------------------------
+
+":proteus-constrains": "Elemento restringido"
+
+# -----------------------------------------------------------------------
 # Clases de arquetipos
 # -----------------------------------------------------------------------
 
