@@ -214,9 +214,12 @@
       <th class="matrix_corner"></th>
       <xsl:for-each select="$col-items">
         <xsl:variable name="label" select="label"/>
+        <!-- The tooltip is the name of the object (older versions of PROTEUS -->
+        <!-- do not provide it: then it is the label, as the text of the link) -->
+        <xsl:variable name="tooltip" select="name | label[not(../name)]"/>
 
         <th class="matrix_column">
-          <a href="#{@id}" onclick="selectAndNavigate(`{@id}`, event)" title="{$label}">
+          <a href="#{@id}" onclick="selectAndNavigate(`{@id}`, event)" title="{$tooltip}">
             <xsl:value-of select="$label"/>
           </a>
         </th>
@@ -233,10 +236,13 @@
     <xsl:param name="trace-types"/>
 
     <xsl:variable name="label" select="label"/>
+    <!-- The tooltip is the name of the object (older versions of PROTEUS -->
+    <!-- do not provide it: then it is the label, as the text of the link) -->
+    <xsl:variable name="tooltip" select="name | label[not(../name)]"/>
     <xsl:variable name="row-item-id" select="@id"/>
 
     <th>
-      <a href="#{@id}" onclick="selectAndNavigate(`{@id}`, event)" title="{$label}">
+      <a href="#{@id}" onclick="selectAndNavigate(`{@id}`, event)" title="{$tooltip}">
         <xsl:value-of select="$label"/>
       </a>
     </th>
